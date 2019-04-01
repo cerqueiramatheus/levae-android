@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://assets.pagar.me/pagarme-js/3.0/pagarme.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+
+<body>
+<script>
+    $(document).ready(function (){
+
+        var card = {}
+        card.card_holder_name = Android.getName()
+        card.card_expiration_date = Android.getMonth() + '/' + Android.getYear()
+        card.card_number = Android.getCardNumber()
+        card.card_cvv = Android.getCvv()
+
+        var cardValidations = pagarme.validate({card: card})
+
+        if(!cardValidations.card.card_number)
+          Android.setError(true)
+
+        pagarme.client.connect({ encryption_key: 'ek_test_RnHBjPeeFXgMzMkrh6aBMGnZkGL5Yr' })
+          .then(client => client.security.encrypt(card))
+          .then(card_hash => Android.setToken(card_hash))
+
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="Widget.Levae.TextInputLayout" parent="Widget.MaterialComponents.TextInputEditText.OutlinedBox">
+        <item name="hintTextAppearance">@style/TextAppearance.Levae.TextInputLayout.HintText</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="cornerRadius"> 100dp </item>
+    </style>
+
+    <style name="TextAppearance.Levae.TextInputLayout.HintText" parent="TextAppearance.MaterialComponents.Subtitle2">
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style>
+
+    <style name="Widget.Levae.Button" parent="Widget.MaterialComponents.Button">
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <item name="cornerRadius"> 100dp </item>
+
+        <item name="backgroundTint">@color/colorPrimary</item>
+        <item name="android:stateListAnimator" tools:ignore="NewApi">
+            @animator/lv_next_button_state_list_anim
+        </item>
+    </style>
+
+    <style name="Widget.Levae.Button.TextButton" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style>
+
+</resources>
