@@ -7,7 +7,7 @@ import java.util.List;
 import levae.client.core.dao.DemandaService;
 import levae.client.core.model.demanda.Demanda;
 import levae.client.core.model.demanda.Objeto;
-import levae.client.core.model.usuarios.Usuario;
+import levae.client.core.model.usuarios.Cliente;
 import levae.client.core.retrofit.Erro;
 import levae.client.core.retrofit.Services;
 import retrofit2.Call;
@@ -24,10 +24,10 @@ public class DemandaInteractor {
         service = new Services().getDemandaService();
     }
 
-    Call<Erro> gerarDemanda(Usuario usuario, List<Objeto> listaObjeto, Pair<Long, Long> localizacao) {
+    Call<Erro> gerarDemanda(Cliente cliente, List<Objeto> listaObjeto, Pair<Long, Long> localizacao) {
 
         Demanda demanda = new Demanda();
-        demanda.setUsuario(usuario);
+        demanda.setCliente(cliente);
         demanda.setListaObjeto(listaObjeto);
 
         return service.cadastrar(demanda);

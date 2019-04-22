@@ -4,7 +4,7 @@ import levae.client.core.dao.DemandaService;
 import levae.client.core.dao.MarcaService;
 import levae.client.core.dao.TipoVeiculoService;
 import levae.client.core.dao.TransportadorService;
-import levae.client.core.dao.UsuarioService;
+import levae.client.core.dao.ClienteService;
 import levae.client.core.dao.VeiculoService;
 
 public class Services {
@@ -19,8 +19,8 @@ public class Services {
         return retrofitConfig.config().create(VeiculoService.class);
     }
 
-    public UsuarioService getUsuarioService() {
-        return retrofitConfig.config().create(UsuarioService.class);
+    public ClienteService getUsuarioService() {
+        return retrofitConfig.config().create(ClienteService.class);
     }
 
     public TransportadorService getTransportadorService() {

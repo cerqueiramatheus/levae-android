@@ -1,35 +1,50 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColorPrimary">@color/textColorPrimary</item>
+        <item name="colorAccent">@color/colorPrimary</item>
+        <item name="android:fontFamily">@font/korolev</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:cursorVisible">false</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:colorBackground">@android:color/transparent</item>
+        <item name="android:windowContentTransitions">true</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
     </style>
 
-    <style name="Widget.Levae.TextInputLayout" parent="Widget.MaterialComponents.TextInputEditText.OutlinedBox">
-        <item name="hintTextAppearance">@style/TextAppearance.Levae.TextInputLayout.HintText</item>
-        <item name="android:paddingBottom">8dp</item>
-        <item name="cornerRadius"> 100dp </item>
+    <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">20sp</item>
+        <item name="android:fontFamily">@font/heavy</item>
+        <item name="android:layout_gravity">center</item>
     </style>
 
-    <style name="TextAppearance.Levae.TextInputLayout.HintText" parent="TextAppearance.MaterialComponents.Subtitle2">
-        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    <style name="Toolbar.ToolbarLayout" parent="Widget.AppCompat.Toolbar">
+        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:textColor">@color/textColorPrimary</item>
+        <item name="android:actionMenuTextColor">@color/textColorPrimary</item>
+        <item name="android:textColorPrimary">@color/textColorPrimary</item>
     </style>
 
-    <style name="Widget.Levae.Button" parent="Widget.MaterialComponents.Button">
-        <item name="android:textColor">?android:attr/textColorPrimary</item>
-        <item name="cornerRadius"> 100dp </item>
-
-        <item name="backgroundTint">@color/colorPrimary</item>
-        <item name="android:stateListAnimator" tools:ignore="NewApi">
-            @animator/lv_next_button_state_list_anim
-        </item>
+    <style name="Tab.TabLayout" parent="Widget.MaterialComponents.TabLayout">
+        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:colorForeground">@color/textColorPrimary</item>
+        <item name="tabTextAppearance">@style/TextView.TabText</item>
+        <item name="tabTextColor">@color/textColorPrimary</item>
+        <item name="tabIndicatorColor">@color/textColorPrimary</item>
     </style>
 
-    <style name="Widget.Levae.Button.TextButton" parent="Widget.MaterialComponents.Button.TextButton">
-        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="AppTheme.AppBarOverlay" parent="Base.Theme.AppCompat.Light.DarkActionBar" android:background="@android:color/transparent" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:background">@android:color/transparent</item>
+    </style>
 </resources>

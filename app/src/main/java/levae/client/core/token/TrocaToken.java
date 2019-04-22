@@ -6,8 +6,8 @@ import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
-import levae.client.core.dao.UsuarioService;
-import levae.client.core.model.usuarios.Usuario;
+import levae.client.core.dao.ClienteService;
+import levae.client.core.model.usuarios.Cliente;
 import okhttp3.Authenticator;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -19,24 +19,24 @@ import okhttp3.Route;
 
 public class TrocaToken implements Authenticator {
 
-    private Usuario usuario;
+    private Cliente cliente;
 
     private CompositeDisposable disposable = new CompositeDisposable();
 
-    private UsuarioService service;
+    private ClienteService service;
 
     @Override
     public Request authenticate(Route route, Response response) {
 
-        usuario = new Usuario();
+        cliente = new Cliente();
 
-        usuario.setEmail(Sessao.getEmail());
+        cliente.setEmail(Sessao.getEmail());
 
-        usuario.setSenha(Sessao.getSenha());
+        cliente.setSenha(Sessao.getSenha());
 
-        if ((usuario.getEmail() != null && usuario.getSenha() != null)) {
+        if ((cliente.getEmail() != null && cliente.getSenha() != null)) {
             disposable.add(
-                    service.token(usuario)
+                    service.token(cliente)
                             .subscribeOn(Schedulers.io())
                             .observeOn(AndroidSchedulers.mainThread())
                             .subscribe(new Consumer<String>() {

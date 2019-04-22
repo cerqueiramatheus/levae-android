@@ -1,15 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="levae.client">
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:icon="@drawable/ic_menu_gallery"
+        android:roundIcon="@drawable/abc_vector_test"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.entrada.EntradaActivity">
+        <activity
+            android:name=".view.perfil.Perfil"
+            android:label="@string/title_activity_perfil"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".view.historico.Historico"
+            android:label="@string/title_activity_historico"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".view.perfilAlterarInfo.PerfilAlterarInfo" />
+        <activity android:name=".view.pagamentoNovo.PagamentoNovo" />
+        <activity android:name=".view.pagamentoDetalhe.PagamentoDetalhe" />
+        <activity android:name=".view.perfilAlterarSenha.PerfilAlterarSenha" />
+        <activity android:name=".view.perfilAlterarInfo.PerfilAlterarSenha" />
+        <activity android:name=".view.demandaNova.DemandaNova" />
+        <activity android:name=".view.perfilAlterarInfo.UsuarioDetalhe" />
+        <activity android:name=".view.pagamento.Pagamento" />
+        <activity android:name=".view.demandaDetalhe.DemandaDetalhe" />
+        <activity
+            android:name=".view.demanda.Demanda"
+            android:label="@string/title_activity_demanda" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.com.vansuita.pickimage.provider"
+            tools:replace="android:authorities" />
+
+        <activity android:name=".view.cadastro.CadastroLoginSenha" />
+        <activity android:name=".view.login.Login" />
+        <activity android:name=".view.cadastro.Cadastro" />
+        <activity android:name=".view.apresentacao.Entrada">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -17,8 +46,9 @@
             </intent-filter>
         </activity>
 
-        <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyCNTbwqIBGNvqpLTzmhgsVu7pgZssX4BjQ"/>
-
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyCNTbwqIBGNvqpLTzmhgsVu7pgZssX4BjQ" />
     </application>
 
 </manifest>

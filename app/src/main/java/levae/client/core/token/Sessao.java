@@ -1,13 +1,13 @@
 package levae.client.core.token;
 
-import levae.client.core.model.usuarios.Usuario;
+import levae.client.core.model.usuarios.Cliente;
 
 /**
  * Created by txring on 25/07/2018.
  */
 public class Sessao {
 
-    public static Usuario usuario;
+    public static Cliente cliente;
 
     public static String localToken;
 

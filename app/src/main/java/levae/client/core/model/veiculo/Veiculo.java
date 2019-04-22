@@ -1,5 +1,7 @@
 package levae.client.core.model.veiculo;
 
+import androidx.annotation.NonNull;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -11,21 +13,27 @@ import levae.client.core.model.usuarios.Transportador;
 
 public class Veiculo implements Serializable {
 
-    private List<Veiculo> listaVeiculo;
-
     private int idVeiculo;
-
     private Marca marca;
-
     private String modelo;
-
     private String cor;
-
     private String placa;
-
     private TipoVeiculo tipo;
-
     private Transportador transportador;
+
+    public Veiculo(int idVeiculo, Marca marca, String modelo, String cor, String placa, TipoVeiculo tipo, Transportador transportador) {
+        this.idVeiculo = idVeiculo;
+        this.marca = marca;
+        this.modelo = modelo;
+        this.cor = cor;
+        this.placa = placa;
+        this.tipo = tipo;
+        this.transportador = transportador;
+    }
+
+    public Veiculo(){
+
+    }
 
     public int getIdVeiculo() {
         return idVeiculo;
@@ -59,14 +67,6 @@ public class Veiculo implements Serializable {
         this.placa = placa;
     }
 
-    public List<Veiculo> getListaVeiculo() {
-        return listaVeiculo;
-    }
-
-    public void setListaVeiculo(List<Veiculo> listaVeiculo) {
-        this.listaVeiculo = listaVeiculo;
-    }
-
     public TipoVeiculo getTipo() {
         return tipo;
     }
@@ -91,11 +91,11 @@ public class Veiculo implements Serializable {
         this.transportador = transportador;
     }
 
+    @NonNull
     @Override
     public String toString() {
         return "Veiculo{" +
-                "listaVeiculo=" + listaVeiculo +
-                ", idVeiculo=" + idVeiculo +
+                "idVeiculo=" + idVeiculo +
                 ", marca=" + marca +
                 ", modelo='" + modelo + '\'' +
                 ", cor='" + cor + '\'' +

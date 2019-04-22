@@ -2,7 +2,7 @@ package levae.client.core.model.demanda;
 
 import java.util.List;
 
-import levae.client.core.model.usuarios.Usuario;
+import levae.client.core.model.usuarios.Cliente;
 import levae.client.core.model.veiculo.Veiculo;
 
 
@@ -12,18 +12,26 @@ import levae.client.core.model.veiculo.Veiculo;
 public class Demanda {
 
     private int idDemanda;
-
     private String estado;
-
     private String nota;
-
     private String comentario;
-
-    private Usuario usuario;
-
+    private Cliente cliente;
     private Veiculo veiculo;
-
     private List<Objeto> listaObjeto;
+
+    public Demanda(int idDemanda, String estado, String nota, String comentario, Cliente cliente, Veiculo veiculo, List<Objeto> listaObjeto) {
+        this.idDemanda = idDemanda;
+        this.estado = estado;
+        this.nota = nota;
+        this.comentario = comentario;
+        this.cliente = cliente;
+        this.veiculo = veiculo;
+        this.listaObjeto = listaObjeto;
+    }
+
+    public Demanda(){
+
+    }
 
     public int getIdDemanda() {
         return idDemanda;
@@ -57,12 +65,12 @@ public class Demanda {
         this.comentario = comentario;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
+    public Cliente getCliente() {
+        return cliente;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 
     public Veiculo getVeiculo() {
@@ -88,7 +96,7 @@ public class Demanda {
                 ", estado='" + estado + '\'' +
                 ", nota='" + nota + '\'' +
                 ", comentario='" + comentario + '\'' +
-                ", usuario=" + usuario +
+                ", cliente=" + cliente +
                 ", veiculo=" + veiculo +
                 ", listaObjeto=" + listaObjeto +
                 '}';

@@ -4,17 +4,18 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import com.google.android.material.snackbar.Snackbar;
-
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.material.snackbar.Snackbar;
+
 import levae.client.core.util.NetworkUtils;
-import levae.client.view.entrada.EntradaActivity;
+import levae.client.view.apresentacao.Entrada;
 
 /**
  * Created by txring on 23/01/2019.
  */
-public class BaseActivity extends AppCompatActivity implements BaseView{
+public class BaseActivity extends AppCompatActivity {
 
 
     @Override
@@ -26,11 +27,6 @@ public class BaseActivity extends AppCompatActivity implements BaseView{
         Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content),
                 message, Snackbar.LENGTH_SHORT);
         snackbar.show();
-    }
-
-    @Override
-    public void setPresenter(Object presenter) {
-
     }
 
     public void onError(String message) {
@@ -55,7 +51,7 @@ public class BaseActivity extends AppCompatActivity implements BaseView{
 
 
     public void voltaLogin() {
-        Intent intent = new Intent(this, EntradaActivity.class);
+        Intent intent = new Intent(this, Entrada.class);
         startActivity(intent);
         this.finish();
     }

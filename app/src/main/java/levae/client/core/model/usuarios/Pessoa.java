@@ -24,6 +24,10 @@ public class Pessoa {
     @Expose
     private Long cpf;
 
+    @SerializedName("mensagem")
+    @Expose
+    private String mensagem;
+
     public String getEmail() {
         return email;
     }
@@ -56,13 +60,22 @@ public class Pessoa {
         this.cpf = cpf;
     }
 
+    public String getMensagem() {
+        return mensagem;
+    }
+
+    public void setMensagem(String mensagem) {
+        this.mensagem = mensagem;
+    }
+
     @Override
     public String toString() {
         return "Pessoa{" +
-                ", email='" + email + '\'' +
-                ", senha='" + senha + '\'' +
-                ", nome='" + nome + '\'' +
+                ", email='" + email +
+                ", senha='" + senha +
+                ", nome='" + nome +
                 ", cpf=" + cpf +
+                ", mensagem=" + mensagem +
                 '}';
     }
 }

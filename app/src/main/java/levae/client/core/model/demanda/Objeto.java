@@ -7,14 +7,22 @@ package levae.client.core.model.demanda;
 public class Objeto {
 
     private int idObjeto;
-
     private String descricao;
-
     private String tamanho;
-
     private double valor;
-
     private double peso;
+
+    public Objeto(int idObjeto, String descricao, String tamanho, double valor, double peso) {
+        this.idObjeto = idObjeto;
+        this.descricao = descricao;
+        this.tamanho = tamanho;
+        this.valor = valor;
+        this.peso = peso;
+    }
+
+    public Objeto(){
+
+    }
 
     public int getIdObjeto() {
         return idObjeto;
