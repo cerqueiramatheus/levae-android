@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="TextInputLayout.OutlinedBox" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:textColorPrimary">@color/textColorSecondary</item>
+        <item name="android:autoCompleteTextViewStyle">@color/textColorSecondary</item>
+        <item name="android:textColorHint">@color/textColorSecondary</item>
+        <item name="hintTextColor">@color/textColorSecondary</item>
+        <item name="errorTextColor">@color/colorPrimary</item>
+        <item name="boxStrokeColor">@color/textColorSecondary</item>
+        <item name="endIconTint">@color/colorPrimary</item>
+        <item name="cornerRadius">100dp</item>
+    </style>
+
+</resources>
