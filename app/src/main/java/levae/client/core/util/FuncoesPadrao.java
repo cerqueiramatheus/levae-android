@@ -1,10 +1,7 @@
 package levae.client.core.util;
 
 import android.annotation.SuppressLint;
-import android.app.ProgressDialog;
 import android.content.Context;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.provider.Settings;
 
 import java.text.SimpleDateFormat;
@@ -12,8 +9,6 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import levae.client.R;
 
 /**
  * Created by txring on 27/01/19.

@@ -1,9 +1,13 @@
 package levae.client.view.login;
 
 import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.observers.DisposableSingleObserver;
 import levae.client.core.interactor.ClienteInteractor;
 import levae.client.core.model.usuarios.Cliente;
+import levae.client.core.retrofit.Services;
+import levae.client.core.util.UserUtils;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * Created by txring on 28/01/2019.
@@ -13,12 +17,10 @@ public class LoginPresenter implements LoginInterface.Presenter {
 
     private LoginInterface.View view;
     private CompositeDisposable mCompositeDisposable;
-    private ClienteInteractor clienteInteractor;
 
-    public LoginPresenter(LoginInterface.View<LoginInterface.Presenter> view) {
+    LoginPresenter(LoginInterface.View<LoginInterface.Presenter> view) {
         view.setPresenter(this);
         this.view = view;
-        clienteInteractor = new ClienteInteractor();
         mCompositeDisposable = new CompositeDisposable();
     }
 
@@ -34,23 +36,20 @@ public class LoginPresenter implements LoginInterface.Presenter {
     @Override
     public void logar(String email, String senha) {
 
-        mCompositeDisposable.add(clienteInteractor.login(new Cliente(email, senha)).subscribeWith(new DisposableSingleObserver<Cliente>() {
-
+        Call<Cliente> clienteCallback = (new Services().getUsuarioService()).login(new Cliente(email, senha));
+        clienteCallback.enqueue(new Callback<Cliente>() {
             @Override
-            public void onSuccess(Cliente cliente) {
-                if (cliente.getMensagem() != null) {
-                    view.onAccepted();
-                } else {
-                    view.onErro(cliente.getMensagem());
-                }
+            public void onResponse(Call<Cliente> call, Response<Cliente> response) {
+
+                UserUtils.setToken(response.headers().get("Authorization"));
+                System.out.println(UserUtils.getToken());
+                view.onAccepted();
             }
 
             @Override
-            public void onError(Throwable e) {
-                view.onErro("lala");
+            public void onFailure(Call<Cliente> call, Throwable t) {
+
             }
-
-        }));
-
+        });
     }
 }

@@ -6,6 +6,7 @@ import levae.client.core.base.BaseView;
 /**
  * Created by txring on 22/04/2019.
  */
+
 public interface LoginInterface {
 
     interface View<LoginPresenter> extends BaseView<Presenter> {

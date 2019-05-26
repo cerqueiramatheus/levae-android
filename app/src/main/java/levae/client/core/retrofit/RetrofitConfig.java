@@ -3,7 +3,6 @@ package levae.client.core.retrofit;
 import java.util.concurrent.TimeUnit;
 
 import levae.client.core.token.MandaToken;
-import levae.client.core.token.TrocaToken;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
@@ -23,7 +22,7 @@ class RetrofitConfig {
         builder.connectTimeout(30, TimeUnit.SECONDS);
 
         builder.addInterceptor(new MandaToken());
-        builder.authenticator(new TrocaToken());
+        //builder.authenticator(new TrocaToken());
 
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
@@ -35,7 +34,7 @@ class RetrofitConfig {
 
     Retrofit config() {
         return new Retrofit.Builder()
-                .baseUrl("http://192.168.0.106")
+                .baseUrl("http://192.168.0.103")
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .client(getBuilder())

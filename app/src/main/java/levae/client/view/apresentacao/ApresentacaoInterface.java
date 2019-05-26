@@ -9,5 +9,15 @@ import levae.client.core.model.usuarios.Cliente;
  */
 public interface ApresentacaoInterface {
 
+    interface View<ApresentacaoPresenter> extends BaseView<Presenter> {
+        void toLogin();
+        void toCadastro();
+        void toSaibaMais();
+    }
 
+    interface Presenter extends BasePresenter {
+        void moveToLogin();
+        void moveToCadastro();
+        void moveToSaibaMais();
+    }
 }

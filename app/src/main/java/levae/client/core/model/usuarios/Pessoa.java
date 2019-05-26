@@ -3,6 +3,8 @@ package levae.client.core.model.usuarios;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.Date;
+
 /**
  * Created by txring on 03/05/2018.
  */
@@ -27,6 +29,30 @@ public class Pessoa {
     @SerializedName("mensagem")
     @Expose
     private String mensagem;
+
+    @SerializedName("celular")
+    @Expose
+    private Long celular;
+
+    @SerializedName("nascimento")
+    @Expose
+    private Date nascimento;
+
+    public Date getNascimento() {
+        return nascimento;
+    }
+
+    public void setNascimento(Date nascimento) {
+        this.nascimento = nascimento;
+    }
+
+    public long getCelular() {
+        return celular;
+    }
+
+    public void setCelular(long celular) {
+        this.celular = celular;
+    }
 
     public String getEmail() {
         return email;
@@ -75,6 +101,7 @@ public class Pessoa {
                 ", senha='" + senha +
                 ", nome='" + nome +
                 ", cpf=" + cpf +
+                ", celular=" + celular +
                 ", mensagem=" + mensagem +
                 '}';
     }

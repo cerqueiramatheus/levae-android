@@ -1,4 +1,4 @@
-package levae.client.core.token;
+/**package levae.client.core.token;
 
 import io.reactivex.SingleObserver;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -13,9 +13,9 @@ import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.Route;
 
-/**
+
  * Created by txring on 24/07/2018.
- */
+
 
 public class TrocaToken implements Authenticator {
 
@@ -72,3 +72,4 @@ public class TrocaToken implements Authenticator {
         };
     }
 }
+*/

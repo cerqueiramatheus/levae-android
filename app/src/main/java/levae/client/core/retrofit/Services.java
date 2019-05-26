@@ -1,5 +1,6 @@
 package levae.client.core.retrofit;
 
+import levae.client.core.dao.CartaoService;
 import levae.client.core.dao.DemandaService;
 import levae.client.core.dao.MarcaService;
 import levae.client.core.dao.TipoVeiculoService;
@@ -37,5 +38,9 @@ public class Services {
 
     public DemandaService getDemandaService() {
         return retrofitConfig.config().create(DemandaService.class);
+    }
+
+    public CartaoService getCartaoService() {
+        return retrofitConfig.config().create(CartaoService.class);
     }
 }

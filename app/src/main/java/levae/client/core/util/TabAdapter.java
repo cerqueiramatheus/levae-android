@@ -14,7 +14,7 @@ public class TabAdapter extends FragmentPagerAdapter {
 
     private Context mContext;
 
-    public TabAdapter (Context context, FragmentManager fm) {
+    public TabAdapter(Context context, FragmentManager fm) {
         super(fm);
         mContext = context;
     }
@@ -24,7 +24,7 @@ public class TabAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         if (position == 0) {
             return null;
-        } else if (position == 1){
+        } else if (position == 1) {
             return null;
         } else {
             return null;

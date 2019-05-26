@@ -3,7 +3,7 @@
     <style name="TextView.TitleText" parent="Widget.AppCompat.TextView">
         <item name="android:fontFamily">@font/heavy</item>
         <item name="android:textSize">32sp</item>
-        <item name="android:textColor">@color/textColorSecondary</item>
+        <item name="android:textColor">@color/textColorPrimary</item>
     </style>
 
     <style name="TextView.TabText" parent="TextAppearance.Design.Tab">

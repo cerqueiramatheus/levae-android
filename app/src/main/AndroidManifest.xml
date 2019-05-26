@@ -4,41 +4,46 @@
     package="levae.client">
 
     <application
+        android:name=".core.util.ContextUtil"
         android:allowBackup="true"
         android:icon="@drawable/ic_menu_gallery"
         android:roundIcon="@drawable/abc_vector_test"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
+
+        <activity android:name=".view.Main2Activity" />
+        <activity android:name=".view.pagamento.PagamentoActivity" />
         <activity
-            android:name=".view.perfil.Perfil"
-            android:label="@string/title_activity_perfil"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity
-            android:name=".view.historico.Historico"
-            android:label="@string/title_activity_historico"
+            android:name=".view.Teste"
+            android:label="@string/title_activity_teste"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".view.perfilAlterarInfo.PerfilAlterarInfo" />
-        <activity android:name=".view.pagamentoNovo.PagamentoNovo" />
+        <activity
+            android:name=".view.main.MainActivity"
+            android:label="@string/title_activity_main" />
+
+        <activity
+            android:name=".view.perfilAlterarInfo.PerfilAlterarInfo"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".view.pagamentoNovo.PagamentoNovoActivity" />
         <activity android:name=".view.pagamentoDetalhe.PagamentoDetalhe" />
         <activity android:name=".view.perfilAlterarSenha.PerfilAlterarSenha" />
-        <activity android:name=".view.perfilAlterarInfo.PerfilAlterarSenha" />
-        <activity android:name=".view.demandaNova.DemandaNova" />
-        <activity android:name=".view.perfilAlterarInfo.UsuarioDetalhe" />
-        <activity android:name=".view.pagamento.Pagamento" />
         <activity android:name=".view.demandaDetalhe.DemandaDetalhe" />
-        <activity
-            android:name=".view.demanda.Demanda"
-            android:label="@string/title_activity_demanda" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.com.vansuita.pickimage.provider"
             tools:replace="android:authorities" />
 
-        <activity android:name=".view.cadastro.CadastroLoginSenha" />
-        <activity android:name=".view.login.Login" />
-        <activity android:name=".view.cadastro.Cadastro" />
-        <activity android:name=".view.apresentacao.Entrada">
+        <activity
+            android:name=".view.login.LoginActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".view.cadastro.CadastroActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".view.apresentacao.Apresentacao"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

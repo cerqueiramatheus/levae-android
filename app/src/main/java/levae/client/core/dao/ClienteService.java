@@ -1,9 +1,13 @@
 package levae.client.core.dao;
 
+import java.util.List;
+
 import io.reactivex.Single;
+import levae.client.core.model.pagamento.Cartao;
 import levae.client.core.model.usuarios.Cliente;
 import levae.client.core.retrofit.Erro;
 import retrofit2.Call;
+import retrofit2.Callback;
 import retrofit2.http.Body;
 import retrofit2.http.POST;
 
@@ -13,7 +17,7 @@ public interface ClienteService {
     Call<Erro> alterarSenha(@Body Cliente cliente);
 
     @POST("cliente/login")
-    Single<Cliente> login(@Body Cliente cliente);
+    Call<Cliente> login(@Body Cliente cliente);
 
     @POST("cliente/token")
     Single<String> token(@Body Cliente cliente);
@@ -26,5 +30,8 @@ public interface ClienteService {
 
     @POST("cliente/excluir")
     Call<Erro> excluir(@Body Cliente cliente);
+
+    @POST("cliente/getlistacartao")
+    Single<List<Cartao>> getListaCartao ();
 
 }

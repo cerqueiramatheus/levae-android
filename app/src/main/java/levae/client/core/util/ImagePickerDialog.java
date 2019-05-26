@@ -6,9 +6,9 @@ import com.vansuita.pickimage.dialog.PickImageDialog;
 /**
  * Created by txring on 19/04/2019.
  */
-public class ImagePickerDialog  {
+public class ImagePickerDialog {
 
-    public static PickImageDialog getDialog(){
+    public static PickImageDialog getDialog() {
 
         PickSetup pickSetup = new PickSetup();
         pickSetup.setCancelText("cancelar");

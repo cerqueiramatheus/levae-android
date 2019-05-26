@@ -29,24 +29,27 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    //Android
+    //Android and Google Services
     api 'com.google.android.material:material:1.1.0-alpha05'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'com.google.android.material:material:1.0.0'
-    implementation 'androidx.appcompat:appcompat:1.1.0-alpha04'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-alpha3'
+    implementation 'androidx.appcompat:appcompat:1.1.0-alpha05'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta1'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
-    implementation 'com.google.firebase:firebase-core:16.0.8'
-    implementation 'com.google.firebase:firebase-messaging:17.6.0'
+    implementation 'com.google.firebase:firebase-core:16.0.9'
+    implementation 'com.google.firebase:firebase-messaging:18.0.0'
     implementation 'com.google.android.gms:play-services-maps:16.1.0'
     implementation 'com.google.android.libraries.places:places:1.1.0'
+    implementation 'com.android.support:recyclerview-v7:28.0.0'
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    implementation 'com.google.android.gms:play-services-maps:16.1.0'
 
     //Retrofit
     api 'com.squareup.retrofit2:retrofit:2.5.0'
     api 'com.squareup.retrofit2:converter-gson:2.4.0'
     implementation 'com.squareup.retrofit2:adapter-rxjava2:2.5.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.10.0'
 
     //ButterKnife
     implementation 'com.jakewharton:butterknife:10.1.0'
@@ -60,16 +63,14 @@ dependencies {
     implementation "io.reactivex.rxjava2:rxjava:2.2.4"
     implementation 'io.reactivex.rxjava2:rxandroid:2.1.0'
 
-
-    implementation 'com.squareup.okhttp3:logging-interceptor:3.10.0'
-    implementation 'androidx.recyclerview:recyclerview:1.0.0'
-    implementation 'com.google.android.gms:play-services-maps:16.1.0'
-
+    //Image Picker
     implementation 'com.github.jrvansuita:PickImage:2.2.4'
-    implementation 'it.sephiroth.android.library.bottomnavigation:bottom-navigation:3.0.0'
 
+    //Lottie
     implementation 'com.airbnb.android:lottie:3.0.0'
 
-    implementation 'com.android.support:recyclerview-v7:28.0.0'
+    //Credit Card Input
+    implementation "com.github.10bis:compactCreditInput:1.0.0-rc4"
+
 }
 apply plugin: 'com.google.gms.google-services'

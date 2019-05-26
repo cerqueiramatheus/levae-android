@@ -5,11 +5,11 @@ import android.app.Dialog;
 import android.os.Bundle;
 import android.widget.DatePicker;
 
-import java.util.Calendar;
-import java.util.Objects;
-
 import androidx.annotation.NonNull;
 import androidx.fragment.app.DialogFragment;
+
+import java.util.Calendar;
+import java.util.Objects;
 
 /**
  * Created by txring on 16/04/2019.

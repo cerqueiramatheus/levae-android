@@ -1,11 +1,10 @@
 package levae.client.core.token;
 
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
+import androidx.annotation.NonNull;
 
 import java.io.IOException;
 
-import androidx.annotation.NonNull;
+import levae.client.core.util.UserUtils;
 import okhttp3.Interceptor;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -21,8 +20,8 @@ public class MandaToken implements Interceptor {
         Request requestInicial = chain.request();
         Request.Builder builder = requestInicial.newBuilder();
 
-        if (Sessao.localToken != null) {
-            builder.header("Authorization", Sessao.localToken);
+        if (!UserUtils.getToken().equals("")) {
+            builder.header("Authorization", UserUtils.getToken());
         }
 
         return chain.proceed(builder.build());

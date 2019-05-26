@@ -11,16 +11,23 @@ import androidx.fragment.app.FragmentTransaction;
 public class ActivityUtils {
 
     public static void addFragment(@NonNull FragmentManager fragmentManager,
-                                             @NonNull Fragment fragment, int frameId) {
+                                   @NonNull Fragment fragment, int frameId) {
 
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.add(frameId, fragment);
+
+        System.out.println(fragmentManager.getFragments().size());
+
+        if (fragmentManager.getFragments().size() != 0) {
+            transaction.addToBackStack(null);
+        }
+
         transaction.commit();
     }
 
 
     public static void replaceFragment(@NonNull FragmentManager fragmentManager,
-                                             @NonNull Fragment fragment, int frameId) {
+                                       @NonNull Fragment fragment, int frameId) {
 
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.replace(frameId, fragment);
@@ -28,7 +35,7 @@ public class ActivityUtils {
     }
 
     public static void removeFragment(@NonNull FragmentManager fragmentManager,
-                                       @NonNull Fragment fragment) {
+                                      @NonNull Fragment fragment) {
 
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.remove(fragment);

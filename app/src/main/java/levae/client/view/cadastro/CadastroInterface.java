@@ -1,19 +1,34 @@
 package levae.client.view.cadastro;
 
+import android.os.Bundle;
+
 import levae.client.core.base.BasePresenter;
 import levae.client.core.base.BaseView;
-import levae.client.core.model.usuarios.Cliente;
 
-/**
- * Created by txring on 22/04/2019.
- */
 public interface CadastroInterface {
 
-    interface View <CadastroPresenter> extends BaseView<Presenter> {
+    interface View extends BaseView<Presenter> {
 
+        void goToDadosPessoais();
+
+        void setDadosPessoais(String nome, String celular, String nascimento);
+
+        void goToLoginSenha();
+
+        void setLoginSenha(String email, String senha);
+
+        void goToMain(Bundle bundle);
+
+        void setError(String msg);
     }
 
     interface Presenter extends BasePresenter {
-        void cadastrar(Cliente cliente);
+
+        void moveToDadosPessoais();
+
+        void moveToLoginSenha(String nome, String celular, String nascimento);
+
+        void moveToMain(String email, String senha);
     }
+
 }

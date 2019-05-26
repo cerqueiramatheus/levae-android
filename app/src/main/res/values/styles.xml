@@ -1,19 +1,28 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="android:textColorPrimary">@color/textColorPrimary</item>
         <item name="colorAccent">@color/colorPrimary</item>
         <item name="android:fontFamily">@font/korolev</item>
-        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:statusBarColor">@color/colorPrimary</item>
         <item name="android:cursorVisible">false</item>
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:colorBackground">@android:color/transparent</item>
         <item name="android:windowContentTransitions">true</item>
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:toolbarStyle">@style/Toolbar.ToolbarLayout</item>
+        <item name="toolbarStyle">@style/Toolbar.ToolbarLayout</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <!-- Both of these are needed -->
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:statusBarColor">@color/colorPrimary</item>
     </style>
 
     <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
@@ -25,8 +34,10 @@
     <style name="Toolbar.ToolbarLayout" parent="Widget.AppCompat.Toolbar">
         <item name="android:background">@color/colorPrimary</item>
         <item name="android:textColor">@color/textColorPrimary</item>
+        <item name="android:textAppearance">@style/Toolbar.TitleText</item>
         <item name="android:actionMenuTextColor">@color/textColorPrimary</item>
         <item name="android:textColorPrimary">@color/textColorPrimary</item>
+        <item name="android:elevation">0dp</item>
     </style>
 
     <style name="Tab.TabLayout" parent="Widget.MaterialComponents.TabLayout">
@@ -35,11 +46,6 @@
         <item name="tabTextAppearance">@style/TextView.TabText</item>
         <item name="tabTextColor">@color/textColorPrimary</item>
         <item name="tabIndicatorColor">@color/textColorPrimary</item>
-    </style>
-
-    <style name="AppTheme.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="Base.Theme.AppCompat.Light.DarkActionBar" android:background="@android:color/transparent" />
