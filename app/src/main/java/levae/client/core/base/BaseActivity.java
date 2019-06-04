@@ -1,5 +1,6 @@
 package levae.client.core.base;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
@@ -15,8 +16,9 @@ import levae.client.view.apresentacao.ApresentacaoActivity;
 /**
  * Created by txring on 23/01/2019.
  */
-public class BaseActivity extends AppCompatActivity {
 
+@SuppressLint("Registered")
+public class BaseActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
