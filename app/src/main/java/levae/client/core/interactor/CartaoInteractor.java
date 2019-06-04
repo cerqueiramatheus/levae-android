@@ -20,7 +20,7 @@ public class CartaoInteractor {
         service = new Services().getCartaoService();
     }
 
-    public Single<List<Cartao>> getListaCartao(){
+    public Single<List<Cartao>> getListaCartao() {
         return service.getListaCartao()
                 .subscribeOn(Schedulers.computation())
                 .observeOn(AndroidSchedulers.mainThread());

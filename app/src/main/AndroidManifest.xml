@@ -3,31 +3,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="levae.client">
 
+    <uses-permission android:name="android.permission.INTERNET" />
     <application
         android:name=".core.util.ContextUtil"
         android:allowBackup="true"
         android:icon="@drawable/ic_menu_gallery"
+        android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@drawable/abc_vector_test"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-
-        <activity android:name=".view.Main2Activity" />
         <activity android:name=".view.pagamento.PagamentoActivity" />
+
         <activity
-            android:name=".view.Teste"
-            android:label="@string/title_activity_teste"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
+            android:theme="@style/AppTheme.NoActionBar"
             android:name=".view.main.MainActivity"
             android:label="@string/title_activity_main" />
 
         <activity
             android:name=".view.perfilAlterarInfo.PerfilAlterarInfo"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"/>
+
         <activity android:name=".view.pagamentoNovo.PagamentoNovoActivity" />
+
         <activity android:name=".view.pagamentoDetalhe.PagamentoDetalhe" />
+
         <activity android:name=".view.perfilAlterarSenha.PerfilAlterarSenha" />
+
         <activity android:name=".view.demandaDetalhe.DemandaDetalhe" />
 
         <provider
@@ -38,15 +40,20 @@
         <activity
             android:name=".view.login.LoginActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+
         <activity
             android:name=".view.cadastro.CadastroActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+
         <activity
-            android:name=".view.apresentacao.Apresentacao"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:name=".view.apresentacao.ApresentacaoActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".view.splash.SplashActivity"
+            android:theme="@style/AppTheme.Fullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

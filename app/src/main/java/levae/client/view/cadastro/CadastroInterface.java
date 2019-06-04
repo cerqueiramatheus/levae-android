@@ -17,7 +17,7 @@ public interface CadastroInterface {
 
         void setLoginSenha(String email, String senha);
 
-        void goToMain(Bundle bundle);
+        void goToMain();
 
         void setError(String msg);
     }

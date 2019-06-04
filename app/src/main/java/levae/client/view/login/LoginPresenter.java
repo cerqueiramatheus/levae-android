@@ -1,9 +1,11 @@
 package levae.client.view.login;
 
+import androidx.annotation.NonNull;
+
 import io.reactivex.disposables.CompositeDisposable;
-import levae.client.core.interactor.ClienteInteractor;
 import levae.client.core.model.usuarios.Cliente;
 import levae.client.core.retrofit.Services;
+import levae.client.core.util.Constantes;
 import levae.client.core.util.UserUtils;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -18,7 +20,7 @@ public class LoginPresenter implements LoginInterface.Presenter {
     private LoginInterface.View view;
     private CompositeDisposable mCompositeDisposable;
 
-    LoginPresenter(LoginInterface.View<LoginInterface.Presenter> view) {
+    LoginPresenter(LoginInterface.View view) {
         view.setPresenter(this);
         this.view = view;
         mCompositeDisposable = new CompositeDisposable();
@@ -30,26 +32,29 @@ public class LoginPresenter implements LoginInterface.Presenter {
 
     @Override
     public void unsubscribe() {
-        mCompositeDisposable.clear();
     }
 
     @Override
     public void logar(String email, String senha) {
+        (new Services().getUsuarioService()).login(new Cliente(email, senha))
+                .enqueue(new Callback<Cliente>() {
+                    @Override
+                    public void onResponse(@NonNull Call<Cliente> call, @NonNull Response<Cliente> response) {
+                        if (response.isSuccessful()) {
+                            if (response.body().getSituacao().equals(Constantes.USUARIO_NOT_FOUND)) {
+                                view.onErro(response.body().getMensagem());
+                            } else {
+                                UserUtils.setToken(response.headers().get("Authorization"));
+                                UserUtils.setCliente(response.body());
+                                view.onAccepted();
+                            }
+                        }
+                    }
 
-        Call<Cliente> clienteCallback = (new Services().getUsuarioService()).login(new Cliente(email, senha));
-        clienteCallback.enqueue(new Callback<Cliente>() {
-            @Override
-            public void onResponse(Call<Cliente> call, Response<Cliente> response) {
-
-                UserUtils.setToken(response.headers().get("Authorization"));
-                System.out.println(UserUtils.getToken());
-                view.onAccepted();
-            }
-
-            @Override
-            public void onFailure(Call<Cliente> call, Throwable t) {
-
-            }
-        });
+                    @Override
+                    public void onFailure(Call<Cliente> call, Throwable t) {
+                        t.printStackTrace();
+                    }
+                });
     }
 }

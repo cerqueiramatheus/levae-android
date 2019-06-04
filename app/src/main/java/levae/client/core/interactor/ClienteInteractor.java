@@ -1,13 +1,10 @@
 package levae.client.core.interactor;
 
 
-import java.util.List;
-
 import io.reactivex.Single;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 import levae.client.core.dao.ClienteService;
-import levae.client.core.model.pagamento.Cartao;
 import levae.client.core.model.usuarios.Cliente;
 import levae.client.core.retrofit.Erro;
 import levae.client.core.retrofit.Services;
@@ -24,8 +21,8 @@ public class ClienteInteractor {
         service = new Services().getUsuarioService();
     }
 
-    public Single<Cliente> cadastrar(Cliente cliente) {
-        return service.cadastrar(cliente)
+    public Single<Cliente> getInfos(){
+        return service.getInfos()
                 .subscribeOn(Schedulers.computation())
                 .observeOn(AndroidSchedulers.mainThread());
     }

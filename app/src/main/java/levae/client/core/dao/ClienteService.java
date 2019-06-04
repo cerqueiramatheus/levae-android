@@ -7,8 +7,8 @@ import levae.client.core.model.pagamento.Cartao;
 import levae.client.core.model.usuarios.Cliente;
 import levae.client.core.retrofit.Erro;
 import retrofit2.Call;
-import retrofit2.Callback;
 import retrofit2.http.Body;
+import retrofit2.http.GET;
 import retrofit2.http.POST;
 
 public interface ClienteService {
@@ -19,11 +19,14 @@ public interface ClienteService {
     @POST("cliente/login")
     Call<Cliente> login(@Body Cliente cliente);
 
+    @POST("cliente/getinfos")
+    Single<Cliente> getInfos();
+
     @POST("cliente/token")
     Single<String> token(@Body Cliente cliente);
 
     @POST("cliente/inserir")
-    Single<Cliente> cadastrar(@Body Cliente cliente);
+    Call<Cliente> cadastrar(@Body Cliente cliente);
 
     @POST("cliente/alterar")
     Call<Erro> alterar(@Body Cliente cliente);
@@ -32,6 +35,6 @@ public interface ClienteService {
     Call<Erro> excluir(@Body Cliente cliente);
 
     @POST("cliente/getlistacartao")
-    Single<List<Cartao>> getListaCartao ();
+    Single<List<Cartao>> getListaCartao();
 
 }

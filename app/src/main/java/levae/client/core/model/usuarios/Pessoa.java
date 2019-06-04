@@ -1,5 +1,7 @@
 package levae.client.core.model.usuarios;
 
+import androidx.annotation.NonNull;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -37,6 +39,10 @@ public class Pessoa {
     @SerializedName("nascimento")
     @Expose
     private Date nascimento;
+
+    @SerializedName("situacao")
+    @Expose
+    private String situacao;
 
     public Date getNascimento() {
         return nascimento;
@@ -94,6 +100,19 @@ public class Pessoa {
         this.mensagem = mensagem;
     }
 
+    public void setCelular(Long celular) {
+        this.celular = celular;
+    }
+
+    public String getSituacao() {
+        return situacao;
+    }
+
+    public void setSituacao(String situacao) {
+        this.situacao = situacao;
+    }
+
+    @NonNull
     @Override
     public String toString() {
         return "Pessoa{" +

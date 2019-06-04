@@ -1,12 +1,11 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/login_til_cvv"
+        android:id="@+id/pagamento_novo_til_cvv"
         style="@style/TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -18,7 +17,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline7">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/login_et_cvv"
+            android:id="@+id/pagamento_novo_et_cvv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="CVV"
@@ -26,7 +25,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/login_til_numero"
+        android:id="@+id/pagamento_novo_til_numero"
         style="@style/TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -37,7 +36,7 @@
         app:layout_constraintStart_toStartOf="@+id/guideline4">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/login_et_numero"
+            android:id="@+id/pagamento_novo_et_numero"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="número do cartão"
@@ -45,7 +44,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/login_til_senha"
+        android:id="@+id/pagamento_novo_til_validade"
         style="@style/TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -58,7 +57,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline7">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/login_et_senha"
+            android:id="@+id/pagamento_novo_et_validade"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="senha"

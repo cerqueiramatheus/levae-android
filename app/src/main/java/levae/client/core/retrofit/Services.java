@@ -1,11 +1,11 @@
 package levae.client.core.retrofit;
 
 import levae.client.core.dao.CartaoService;
+import levae.client.core.dao.ClienteService;
 import levae.client.core.dao.DemandaService;
 import levae.client.core.dao.MarcaService;
 import levae.client.core.dao.TipoVeiculoService;
 import levae.client.core.dao.TransportadorService;
-import levae.client.core.dao.ClienteService;
 import levae.client.core.dao.VeiculoService;
 
 public class Services {

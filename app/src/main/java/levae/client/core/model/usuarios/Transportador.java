@@ -1,5 +1,7 @@
 package levae.client.core.model.usuarios;
 
+import androidx.annotation.NonNull;
+
 import java.util.List;
 
 import levae.client.core.model.veiculo.Veiculo;
@@ -49,6 +51,7 @@ public class Transportador extends Pessoa {
         this.listaVeiculo = listaVeiculo;
     }
 
+    @NonNull
     @Override
     public String toString() {
         return "Transportador{" +

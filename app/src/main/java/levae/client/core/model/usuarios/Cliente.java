@@ -1,5 +1,7 @@
 package levae.client.core.model.usuarios;
 
+import androidx.annotation.NonNull;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -47,6 +49,7 @@ public class Cliente extends Pessoa implements Serializable {
         this.reputacao = reputacao;
     }
 
+    @NonNull
     @Override
     public String toString() {
         return "Cliente{" +

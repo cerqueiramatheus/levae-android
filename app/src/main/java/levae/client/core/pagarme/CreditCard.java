@@ -6,7 +6,7 @@ import android.webkit.JavascriptInterface;
  * Created by txring on 10/03/2019.
  */
 
-public class CreditCard  {
+public class CreditCard {
 
     private String cardNumber;
     private String name;
@@ -87,6 +87,6 @@ public class CreditCard  {
     @JavascriptInterface
     public void setToken(String token) {
         this.token = token;
-        System.out.println("OLHA O TOKEN DESTA DESGRAÇA" +token);
+        System.out.println("OLHA O TOKEN DESTA DESGRAÇA" + token);
     }
 }

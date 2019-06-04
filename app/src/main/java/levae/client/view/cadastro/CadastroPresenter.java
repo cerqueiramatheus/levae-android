@@ -1,12 +1,15 @@
 package levae.client.view.cadastro;
 
-import android.os.Bundle;
-
 import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.observers.DisposableSingleObserver;
 import levae.client.core.interactor.ClienteInteractor;
 import levae.client.core.model.usuarios.Cliente;
+import levae.client.core.retrofit.Services;
+import levae.client.core.util.Constantes;
 import levae.client.core.util.EditTextUtils;
+import levae.client.core.util.UserUtils;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class CadastroPresenter implements CadastroInterface.Presenter {
 
@@ -52,23 +55,28 @@ public class CadastroPresenter implements CadastroInterface.Presenter {
         cliente.setEmail(email);
         cliente.setSenha(senha);
 
-        mCompositeDisposable.add(mInteractor.cadastrar(cliente).subscribeWith(new DisposableSingleObserver<Cliente>() {
-            @Override
-            public void onSuccess(Cliente cliente) {
-                if (cliente.getMensagem() == null) {
-                    Bundle bundle = new Bundle();
-                    bundle.putSerializable("cliente", cliente);
-                    mView.goToMain(bundle);
-                } else {
-                    mView.setError(cliente.getMensagem());
-                }
-            }
+        (new Services().getUsuarioService()).cadastrar(new Cliente(email, senha))
+                .enqueue(new Callback<Cliente>() {
+                    @Override
+                    public void onResponse(Call<Cliente> call, Response<Cliente> response) {
+                        if (response.body() != null) {
+                            if (!response.body().getMensagem().equals(Constantes.USUARIO_NOT_FOUND)) {
+                                UserUtils.setToken(response.headers().get("Authorization"));
+                                UserUtils.setCliente(response.body());
+                                mView.goToMain();
+                            } else {
+                                mView.setError(response.body().getMensagem());
+                            }
+                        } else {
+                            mView.setError("houve um erro...");
+                        }
+                    }
 
-            @Override
-            public void onError(Throwable e) {
-                mView.setError("algo");
-            }
-        }));
+                    @Override
+                    public void onFailure(Call<Cliente> call, Throwable t) {
+                        t.printStackTrace();
+                        mView.setError("houve um erro...");
+                    }
+                });
     }
-
 }

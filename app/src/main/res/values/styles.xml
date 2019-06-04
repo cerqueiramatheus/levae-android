@@ -10,12 +10,17 @@
         <item name="android:fontFamily">@font/korolev</item>
         <item name="android:statusBarColor">@color/colorPrimary</item>
         <item name="android:cursorVisible">false</item>
-        <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:colorBackground">@android:color/transparent</item>
         <item name="android:windowContentTransitions">true</item>
+        <item name="android:navigationBarColor">@android:color/black</item>
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
         <item name="android:toolbarStyle">@style/Toolbar.ToolbarLayout</item>
         <item name="toolbarStyle">@style/Toolbar.ToolbarLayout</item>
+        <item name="snackbarStyle">@style/Widget.MaterialComponents.Snackbar.Snack</item>
+    </style>
+
+    <style name="Widget.MaterialComponents.Snackbar.Snack" parent="Widget.MaterialComponents.Snackbar">
+        <item name="android:textColor">@color/textColorPrimary</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -23,6 +28,13 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="android:statusBarColor">@color/colorPrimary</item>
+    </style>
+
+    <style name="AppTheme.Fullscreen" parent="Theme.MaterialComponents.NoActionBar">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:statusBarColor">@android:color/white</item>
+        <item name="android:colorBackground">@android:color/white</item>
+        <item name="android:windowLayoutInDisplayCutoutMode">shortEdges</item>
     </style>
 
     <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">

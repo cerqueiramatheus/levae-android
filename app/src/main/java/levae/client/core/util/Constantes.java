@@ -11,4 +11,6 @@ public class Constantes {
     public static String ERRO_NOME = "nome inválido";
     public static String ERRO_CELULAR = "celular inválido";
 
+    public static String USUARIO_NOT_FOUND = "NOTFOUND";
+
 }

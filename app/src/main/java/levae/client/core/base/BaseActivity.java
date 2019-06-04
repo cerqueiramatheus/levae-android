@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.snackbar.Snackbar;
 
 import levae.client.core.util.NetworkUtils;
-import levae.client.view.apresentacao.Apresentacao;
+import levae.client.view.apresentacao.ApresentacaoActivity;
 
 /**
  * Created by txring on 23/01/2019.
@@ -51,7 +51,7 @@ public class BaseActivity extends AppCompatActivity {
 
 
     public void voltaLogin() {
-        Intent intent = new Intent(this, Apresentacao.class);
+        Intent intent = new Intent(this, ApresentacaoActivity.class);
         startActivity(intent);
         this.finish();
     }

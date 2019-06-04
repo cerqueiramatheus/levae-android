@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
-    tools:context=".view.apresentacao.Apresentacao">
+    tools:context=".view.apresentacao.ApresentacaoActivity">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline11"
@@ -117,8 +117,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:lottie_loop="true"
         app:lottie_autoPlay="true"
-        app:lottie_rawRes="@raw/car"/>
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/car" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

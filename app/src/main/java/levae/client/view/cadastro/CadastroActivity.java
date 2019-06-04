@@ -1,5 +1,6 @@
 package levae.client.view.cadastro;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import levae.client.R;
@@ -7,6 +8,7 @@ import levae.client.core.base.BaseActivity;
 import levae.client.core.util.ActivityUtils;
 import levae.client.view.cadastroDadosPessoais.CadastroDadosPessoaisFragment;
 import levae.client.view.cadastroLoginSenha.CadastroLoginSenhaFragment;
+import levae.client.view.main.MainActivity;
 
 public class CadastroActivity extends BaseActivity implements CadastroInterface.View {
 
@@ -53,8 +55,9 @@ public class CadastroActivity extends BaseActivity implements CadastroInterface.
     }
 
     @Override
-    public void goToMain(Bundle bundle) {
-
+    public void goToMain() {
+        Intent it = new Intent(CadastroActivity.this, MainActivity.class);
+        startActivity(it);
     }
 
     @Override

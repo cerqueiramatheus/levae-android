@@ -12,5 +12,5 @@ import retrofit2.http.POST;
 public interface CartaoService {
 
     @POST("cartao/getlista")
-    Single<List<Cartao>> getListaCartao ();
+    Single<List<Cartao>> getListaCartao();
 }

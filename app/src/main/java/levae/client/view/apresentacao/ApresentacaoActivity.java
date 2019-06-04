@@ -13,10 +13,11 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import levae.client.R;
 import levae.client.core.base.BaseActivity;
+import levae.client.core.util.UserUtils;
 import levae.client.view.cadastro.CadastroActivity;
 import levae.client.view.login.LoginActivity;
 
-public class Apresentacao extends BaseActivity implements ApresentacaoInterface.View<ApresentacaoInterface.Presenter> {
+public class ApresentacaoActivity extends BaseActivity implements ApresentacaoInterface.View<ApresentacaoInterface.Presenter> {
 
     @BindView(R.id.entrada_btn_entrar)
     MaterialButton btnEntrar;
@@ -33,6 +34,8 @@ public class Apresentacao extends BaseActivity implements ApresentacaoInterface.
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_apresentacao);
+        showMessage("token: "+ UserUtils.getToken());
+
     }
 
     @Override
@@ -55,7 +58,7 @@ public class Apresentacao extends BaseActivity implements ApresentacaoInterface.
     @Override
     public void toLogin() {
         System.out.println("clicou");
-        Intent intent = new Intent(Apresentacao.this, LoginActivity.class);
+        Intent intent = new Intent(ApresentacaoActivity.this, LoginActivity.class);
         ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(this);
         startActivity(intent, options.toBundle());
     }
@@ -63,7 +66,7 @@ public class Apresentacao extends BaseActivity implements ApresentacaoInterface.
     @Override
     public void toCadastro() {
         System.out.println("clicou");
-        Intent intent = new Intent(Apresentacao.this, CadastroActivity.class);
+        Intent intent = new Intent(ApresentacaoActivity.this, CadastroActivity.class);
         ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(this);
         getWindow().setExitTransition(null);
         startActivity(intent, options.toBundle());

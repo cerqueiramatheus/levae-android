@@ -17,6 +17,7 @@ public class ContextUtil extends Application {
     }
 
     public static Context getContext() {
+        System.out.println(mApplication.getApplicationContext() == null);
         return mApplication.getApplicationContext();
     }
 }

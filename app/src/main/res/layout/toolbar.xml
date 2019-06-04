@@ -16,10 +16,10 @@
             android:id="@+id/toolbar_title"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:fontFamily="@font/korolev_heavy"
             android:gravity="center"
             android:textColor="@color/textColorPrimary"
-            android:fontFamily="@font/korolev_heavy"
-            android:textSize="20sp"/>
+            android:textSize="20sp" />
 
     </androidx.appcompat.widget.Toolbar>
 

@@ -9,7 +9,7 @@ import levae.client.core.base.BaseView;
 
 public interface LoginInterface {
 
-    interface View<LoginPresenter> extends BaseView<Presenter> {
+    interface View extends BaseView<Presenter> {
         void toSignUp();
         void onAccepted();
         void onErro(String erro);

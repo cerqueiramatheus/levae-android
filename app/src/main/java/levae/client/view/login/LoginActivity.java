@@ -13,10 +13,9 @@ import butterknife.OnClick;
 import levae.client.R;
 import levae.client.core.base.BaseActivity;
 import levae.client.core.util.EditTextUtils;
-import levae.client.view.Teste;
 import levae.client.view.main.MainActivity;
 
-public class LoginActivity extends BaseActivity implements LoginInterface.View<LoginInterface.Presenter> {
+public class LoginActivity extends BaseActivity implements LoginInterface.View {
 
     @BindView(R.id.login_tv_entrar)
     TextView tvEntrar;
@@ -63,12 +62,14 @@ public class LoginActivity extends BaseActivity implements LoginInterface.View<L
 
     @Override
     public void onAccepted() {
-        Intent it = new Intent(LoginActivity.this, Teste.class);
+        Intent it = new Intent(LoginActivity.this, MainActivity.class);
         startActivity(it);
     }
 
     @Override
     public void onErro(String msg) {
+        System.out.println(msg);
+        showSnack(msg);
     }
 
     @Override

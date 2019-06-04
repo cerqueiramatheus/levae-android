@@ -14,6 +14,6 @@ public class CadastroLoginSenhaPresenter implements CadastroLoginSenhaInterface.
 
     @Override
     public void verificaLoginSenha(String email, String senha, String senhaConfirma) {
-
+        mView.onCadastrar(email, senha);
     }
 }

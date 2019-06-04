@@ -5,7 +5,6 @@ import java.util.List;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.observers.DisposableSingleObserver;
 import levae.client.core.interactor.CartaoInteractor;
-import levae.client.core.interactor.ClienteInteractor;
 import levae.client.core.model.pagamento.Cartao;
 
 /**
@@ -17,7 +16,7 @@ class PagamentoPresenter implements PagamentoInterface.Presenter {
     private CompositeDisposable mCompositeDisposable;
     private CartaoInteractor cartaoInteractor;
 
-    PagamentoPresenter(PagamentoInterface.View<PagamentoInterface.Presenter> view) {
+    PagamentoPresenter(PagamentoInterface.View view) {
         view.setPresenter(this);
         this.mView = view;
         mCompositeDisposable = new CompositeDisposable();
@@ -30,19 +29,18 @@ class PagamentoPresenter implements PagamentoInterface.Presenter {
                 cartaoInteractor.getListaCartao().subscribeWith(new DisposableSingleObserver<List<Cartao>>() {
                     @Override
                     public void onSuccess(List<Cartao> listaCartao) {
-                        mView.populateView(listaCartao);
+                        mView.populateView(new PagamentoAdapter(listaCartao, mView));
                     }
 
                     @Override
                     public void onError(Throwable e) {
                         e.printStackTrace();
-                        System.out.println("alalalala");
                     }
                 }));
     }
 
     @Override
     public void unsubscribe() {
-
+        mCompositeDisposable.clear();
     }
 }
