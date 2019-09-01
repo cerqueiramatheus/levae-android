@@ -16,8 +16,6 @@ public class ActivityUtils {
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.add(frameId, fragment);
 
-        System.out.println(fragmentManager.getFragments().size());
-
         if (fragmentManager.getFragments().size() != 0) {
             transaction.addToBackStack(null);
         }
@@ -27,11 +25,16 @@ public class ActivityUtils {
 
 
     public static void replaceFragment(@NonNull FragmentManager fragmentManager,
-                                       @NonNull Fragment fragment, int frameId) {
+                                       @NonNull Fragment fragment, int frameId, boolean backstack) {
 
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.replace(frameId, fragment);
-        transaction.commit();
+        if (backstack) {
+            transaction.addToBackStack(null);
+        }
+        if (!fragment.isAdded()) {
+            transaction.commit();
+        }
     }
 
     public static void removeFragment(@NonNull FragmentManager fragmentManager,

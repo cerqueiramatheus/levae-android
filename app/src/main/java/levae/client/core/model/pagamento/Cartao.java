@@ -3,10 +3,12 @@ package levae.client.core.model.pagamento;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
+
 /**
  * Created by txring on 25/05/2019.
  */
-public class Cartao {
+public class Cartao implements Serializable {
 
     @SerializedName("idCartao")
     @Expose
@@ -23,6 +25,32 @@ public class Cartao {
     @SerializedName("sequencia")
     @Expose
     private String sequencia;
+
+    @SerializedName("validade")
+    @Expose
+    private String validade;
+
+
+    @SerializedName("estado")
+    @Expose
+    private String estado;
+
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public String getValidade() {
+        return validade;
+    }
+
+    public void setValidade(String validade) {
+        this.validade = validade;
+    }
 
     public int getIdCartao() {
         return idCartao;
@@ -63,6 +91,8 @@ public class Cartao {
                 ", cardId='" + cardId + '\'' +
                 ", bandeira='" + bandeira + '\'' +
                 ", sequencia=" + sequencia +
+                ", validade=" + validade +
+                ", estado=" + estado +
                 '}';
     }
 }

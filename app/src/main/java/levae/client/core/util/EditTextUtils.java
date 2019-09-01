@@ -13,6 +13,13 @@ import java.util.Locale;
  */
 public class EditTextUtils {
 
+    public static void cleanError(TextInputLayout... editTexts) {
+        for (TextInputLayout editText : editTexts
+        ) {
+            editText.setError("");
+        }
+    }
+
     public static void setError(TextInputLayout til, String msg) {
         if (til.getError() == null) {
             til.setError(msg);

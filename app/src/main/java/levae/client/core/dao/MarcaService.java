@@ -8,7 +8,7 @@ import retrofit2.http.GET;
 
 public interface MarcaService {
 
-    @GET("marca/getlista")
+    @GET("marca/getLista")
     Call<List<Marca>> getlista();
 
 }

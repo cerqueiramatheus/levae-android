@@ -25,7 +25,7 @@ public class Cliente extends Pessoa implements Serializable {
         this.setSenha(senha);
     }
 
-    @SerializedName("idUsuario")
+    @SerializedName("idCliente")
     @Expose
     private int idUsuario;
 
@@ -53,10 +53,9 @@ public class Cliente extends Pessoa implements Serializable {
     @Override
     public String toString() {
         return "Cliente{" +
-                "idUsuario=" + getIdUsuario() +
+                "idCliente=" + getIdUsuario() +
                 ", email=" + getEmail() +
                 ", senha=" + getSenha() +
-                ", reputacao=" + getReputacao() +
                 ", reputacao=" + getReputacao() +
                 '}';
     }

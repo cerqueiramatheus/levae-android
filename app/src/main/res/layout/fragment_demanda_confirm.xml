@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/demanda_confirm_layout"
+    android:layout_margin="8dp"
+    tools:context=".view.demandaNova.demandaConfirm.DemandaConfirmFragment">
+
+    <TextView
+        android:id="@+id/demanda_confirm_txt_de"
+        style="@style/CommonTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="de:" />
+
+    <TextView
+        android:id="@+id/demanda_confirm_txt_origem_local"
+        style="@style/BigText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/demanda_confirm_txt_de" />
+
+    <TextView
+        android:id="@+id/demanda_confirm_txt_origem_data"
+        style="@style/BigText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/demanda_confirm_txt_origem_local" />
+
+    <TextView
+        android:id="@+id/demanda_confirm_txt_para"
+        style="@style/CommonTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/demanda_confirm_txt_origem_data"
+        android:layout_marginTop="8dp"
+        android:text="para:" />
+
+    <TextView
+        android:id="@+id/demanda_confirm_txt_destino_local"
+        style="@style/BigText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/demanda_confirm_txt_para" />
+
+    <TextView
+        android:id="@+id/demanda_confirm_txt_destino_data"
+        style="@style/BigText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/demanda_confirm_txt_destino_local" />
+
+    <TextView
+        android:id="@+id/demanda_confirm_objeto_name"
+        style="@style/CommonTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/demanda_confirm_txt_destino_data"
+        android:layout_marginTop="8dp"
+        android:text="objetos da entrega:" />
+
+    <TextView
+        android:id="@+id/demanda_confirm_valor_objeto_list"
+        style="@style/CommonTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/demanda_confirm_objeto_name"
+        android:textSize="21sp" />
+
+    <TextView
+        android:id="@+id/demanda_confirm_valor"
+        style="@style/CommonTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/demanda_confirm_valor_objeto_list"
+        android:layout_marginTop="8dp"
+        android:text="valor total:" />
+
+    <TextView
+        android:id="@+id/demanda_confirm_txt_valor_total"
+        style="@style/CommonTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/demanda_confirm_valor"
+        android:textSize="21sp" />
+
+
+    <TextView
+        android:id="@+id/demanda_confirm_pagamento"
+        style="@style/CommonTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/demanda_confirm_txt_valor_total"
+        android:layout_marginTop="8dp"
+        android:text="pagamento:" />
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/demanda_confirm_btn_finalizar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="@dimen/fab_margin"
+        android:backgroundTint="@color/colorPrimary"
+        android:fontFamily="@font/title_bold"
+        android:text="finalizar"
+        android:textColor="@color/textColorPrimary"
+        app:icon="@drawable/ic_check"
+        app:iconTint="@color/textColorPrimary" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/demanda_confirm_til_cartao"
+        style="@style/TextInputLayout.OutlinedBox.White"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/demanda_confirm_pagamento"
+        android:layout_marginTop="8dp"
+        android:focusableInTouchMode="false"
+        app:errorEnabled="true">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/demanda_confirm_et_cartao"
+            style="@style/TextInputEditText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:focusableInTouchMode="false"
+            android:fontFamily="@font/title_bold"
+            android:hint="selecione um cartão"
+            android:textSize="14sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+</RelativeLayout>

@@ -7,9 +7,53 @@
         <item name="android:textColorHint">@color/textColorPrimary</item>
         <item name="hintTextColor">@color/textColorPrimary</item>
         <item name="errorTextColor">@color/textColorPrimary</item>
-        <item name="boxStrokeColor">@color/colorPrimaryDark</item>
+        <item name="boxStrokeColor">@color/quantum_white_100</item>
         <item name="endIconTint">@color/colorPrimaryDark</item>
         <item name="cornerRadius">100dp</item>
     </style>
 
+    <style name="TextInputLayout.OutlinedBox.White" parent="TextInputLayout.OutlinedBox">
+        <item name="android:textColorPrimary">@color/colorPrimaryDark</item>
+        <item name="android:autoCompleteTextViewStyle">@color/textColorSecondary</item>
+        <item name="android:textColorHint">@color/textColorSecondary</item>
+        <item name="hintTextColor">@color/textColorSecondary</item>
+        <item name="errorTextColor">@color/colorPrimaryLowDark</item>
+        <item name="boxStrokeColor">@color/textColorSecondary</item>
+        <item name="endIconTint">@color/textColorSecondary</item>
+        <item name="cornerRadius">100dp</item>
+    </style>
+
+    <style name="ExposedDropdown.OutlinedBox.White" parent="ExposedDropdown.OutlinedBox">
+        <item name="android:textColorPrimary">@color/colorPrimaryDark</item>
+        <item name="android:autoCompleteTextViewStyle">@color/textColorSecondary</item>
+        <item name="android:textColorHint">@color/textColorSecondary</item>
+        <item name="hintTextColor">@color/textColorSecondary</item>
+        <item name="errorTextColor">@color/colorPrimaryLowDark</item>
+        <item name="boxStrokeColor">@color/textColorSecondary</item>
+        <item name="endIconTint">@color/textColorSecondary</item>
+        <item name="cornerRadius">100dp</item>
+    </style>
+
+    <style name="ExposedDropdown.OutlinedBox" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+        <item name="android:textColorPrimary">@color/colorPrimaryDark</item>
+        <item name="android:autoCompleteTextViewStyle">@color/textColorSecondary</item>
+        <item name="android:textColorHint">@color/textColorPrimary</item>
+        <item name="hintTextColor">@color/textColorPrimary</item>
+        <item name="errorTextColor">@color/textColorPrimary</item>
+        <item name="boxStrokeColor">@color/quantum_white_100</item>
+        <item name="endIconTint">@color/colorPrimaryDark</item>
+        <item name="cornerRadius">100dp</item>
+    </style>
+
+    <style name="TextInputEditText" parent="Widget.AppCompat.EditText">
+        <item name="android:textColor">@color/textColorSecondary</item>
+        <item name="android:fontFamily">@font/text_regular</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="AutoCompleteTextView" parent="Widget.AppCompat.AutoCompleteTextView">
+        <item name="android:textColor">@color/textColorSecondary</item>
+        <item name="android:fontFamily">@font/text_regular</item>
+        <item name="android:textSize">14sp</item>
+    </style>
 </resources>

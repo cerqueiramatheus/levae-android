@@ -1,13 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <style name="TextView.TitleText" parent="Widget.AppCompat.TextView">
-        <item name="android:fontFamily">@font/heavy</item>
+        <item name="android:fontFamily">@font/title_bold</item>
         <item name="android:textSize">32sp</item>
         <item name="android:textColor">@color/textColorPrimary</item>
     </style>
 
     <style name="TextView.TabText" parent="TextAppearance.Design.Tab">
-        <item name="android:fontFamily">@font/heavy</item>
+        <item name="android:fontFamily">@font/title_bold</item>
         <item name="android:textColor">@color/textColorPrimary</item>
+    </style>
+
+    <style name="CommonText">
+        <item name="android:fontFamily">@font/text_regular</item>
+        <item name="android:textColor">@color/textColorSecondary</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+
+    <style name="CommonTitle">
+        <item name="android:fontFamily">@font/title_bold</item>
+        <item name="android:textColor">@color/textColorSecondary</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="BigText">
+        <item name="android:fontFamily">@font/title_regular</item>
+        <item name="android:textColor">@color/textColorSecondary</item>
+        <item name="android:textSize">21sp</item>
+    </style>
+
+    <style name="BigTitle">
+        <item name="android:fontFamily">@font/title_regular</item>
+        <item name="android:textColor">@color/textColorSecondary</item>
+        <item name="android:textSize">21sp</item>
     </style>
 </resources>

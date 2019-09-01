@@ -1,5 +1,8 @@
 package levae.client.core.model.veiculo;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -8,9 +11,21 @@ import java.util.Objects;
  */
 public class TipoVeiculo implements Serializable {
 
+    @SerializedName("idTipo")
+    @Expose
     private int idTipo;
 
+    @SerializedName("descricao")
+    @Expose
     private String descricao;
+
+    @SerializedName("taxaKm")
+    @Expose
+    private Double taxaKm;
+
+    @SerializedName("taxaFixa")
+    @Expose
+    private Double taxaFixa;
 
     public int getIdTipo() {
         return idTipo;
@@ -26,6 +41,22 @@ public class TipoVeiculo implements Serializable {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public Double getTaxaKm() {
+        return taxaKm;
+    }
+
+    public void setTaxaKm(Double taxaKm) {
+        this.taxaKm = taxaKm;
+    }
+
+    public Double getTaxaFixa() {
+        return taxaFixa;
+    }
+
+    public void setTaxaFixa(Double taxaFixa) {
+        this.taxaFixa = taxaFixa;
     }
 
     @Override

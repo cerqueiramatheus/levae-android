@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/demanda_nova_objeto_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/textColorPrimary">
+
+    <RelativeLayout
+        android:id="@+id/demanda_nova_objeto_null"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:paddingBottom="100dp"
+        android:visibility="invisible">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/demanda_nova_objeto_animation"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/list" />
+
+        <TextView
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/demanda_nova_objeto_animation"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="@font/title_bold"
+            android:text="adicione objetos para transportar"
+            android:textAlignment="center"
+            android:textColor="@color/textColorSecondary" />
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/demanda_nova_objeto_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="8dp" />
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/demanda_nova_objeto_btn_novo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/demanda_nova_objeto_btn_proximo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/fab_margin"
+        android:backgroundTint="@color/textColorSecondary"
+        android:fontFamily="@font/title_bold"
+        android:text="adicionar objeto"
+        android:textColor="@color/textColorPrimary"
+        app:icon="@drawable/ic_add"
+        app:iconTint="@color/textColorPrimary" />
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/demanda_nova_objeto_btn_proximo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="@dimen/fab_margin"
+        android:backgroundTint="@color/colorPrimary"
+        android:fontFamily="@font/title_bold"
+        android:text="continuar"
+        android:textColor="@color/textColorPrimary"
+        android:visibility="invisible"
+        app:icon="@drawable/ic_check"
+        app:iconTint="@color/textColorPrimary" />
+
+
+</RelativeLayout>

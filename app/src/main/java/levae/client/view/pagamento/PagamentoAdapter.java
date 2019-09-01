@@ -3,6 +3,7 @@ package levae.client.view.pagamento;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import levae.client.R;
+import levae.client.core.enums.CreditCardEnum;
 import levae.client.core.model.pagamento.Cartao;
 import levae.client.core.util.OnItemClickListener;
 
@@ -19,11 +21,10 @@ import levae.client.core.util.OnItemClickListener;
  */
 public class PagamentoAdapter extends RecyclerView.Adapter<PagamentoAdapter.CustomViewHolder> {
 
-    //Extend the RecyclerView.Adapter class
     private List<Cartao> listaCartao;
     private OnItemClickListener mListener;
 
-    PagamentoAdapter(List<Cartao> dataList, OnItemClickListener listener) {
+    public PagamentoAdapter(List<Cartao> dataList, OnItemClickListener listener) {
         this.listaCartao = dataList;
         this.mListener = listener;
     }
@@ -32,14 +33,14 @@ public class PagamentoAdapter extends RecyclerView.Adapter<PagamentoAdapter.Cust
 
         //Get a reference to the Views in our layout
         final View mView;
-        TextView tvBandeira;
-        TextView tvSequencia;
+        ImageView bandeira;
+        TextView sequencia;
 
         CustomViewHolder(View itemView) {
             super(itemView);
             mView = itemView;
-            tvBandeira = mView.findViewById(R.id.bandeira);
-            tvSequencia = mView.findViewById(R.id.sequencia);
+            bandeira = mView.findViewById(R.id.row_pagamento_bandeira);
+            sequencia = mView.findViewById(R.id.row_pagamento_sequencia);
             itemView.setOnClickListener(this);
         }
 
@@ -49,7 +50,6 @@ public class PagamentoAdapter extends RecyclerView.Adapter<PagamentoAdapter.Cust
         }
     }
 
-    //Construct a RecyclerView.ViewHolder
     @NonNull
     @Override
     public CustomViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -61,8 +61,8 @@ public class PagamentoAdapter extends RecyclerView.Adapter<PagamentoAdapter.Cust
     //Set the data
     @Override
     public void onBindViewHolder(@NonNull CustomViewHolder holder, int position) {
-        holder.tvBandeira.setText(listaCartao.get(position).getBandeira());
-        holder.tvSequencia.setText(listaCartao.get(position).getSequencia());
+        holder.bandeira.setImageResource(CreditCardEnum.valueOf(listaCartao.get(position).getBandeira()).getMiniIcon());
+        holder.sequencia.setText(listaCartao.get(position).getSequencia());
     }
 
     //Calculate the item count for the RecylerView

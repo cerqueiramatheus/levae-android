@@ -1,27 +1,50 @@
 package levae.client.core.model.demanda;
 
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
+import java.io.File;
+import java.io.Serializable;
+
 /**
  * Created by txring on 19/06/2018.
  */
-public class Objeto {
+public class Objeto implements Serializable {
 
+    @SerializedName("idObjeto")
+    @Expose
     private int idObjeto;
-    private String descricao;
-    private String tamanho;
-    private double valor;
-    private double peso;
 
-    public Objeto(int idObjeto, String descricao, String tamanho, double valor, double peso) {
+    @SerializedName("titulo")
+    @Expose
+    private String titulo;
+
+    @SerializedName("foto")
+    @Expose
+    private File foto;
+
+    @SerializedName("valor")
+    @Expose
+    private double valor;
+
+    public Objeto(int idObjeto, String descricao, double valor, File foto) {
         this.idObjeto = idObjeto;
-        this.descricao = descricao;
-        this.tamanho = tamanho;
+        this.titulo = descricao;
         this.valor = valor;
-        this.peso = peso;
+        this.foto = foto;
     }
 
-    public Objeto(){
+    public Objeto() {
 
+    }
+
+    public File getFoto() {
+        return foto;
+    }
+
+    public void setFoto(File foto) {
+        this.foto = foto;
     }
 
     public int getIdObjeto() {
@@ -32,21 +55,14 @@ public class Objeto {
         this.idObjeto = idObjeto;
     }
 
-    public String getDescricao() {
-        return descricao;
+    public String getTitulo() {
+        return titulo;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
     }
 
-    public String getTamanho() {
-        return tamanho;
-    }
-
-    public void setTamanho(String tamanho) {
-        this.tamanho = tamanho;
-    }
 
     public double getValor() {
         return valor;
@@ -56,22 +72,13 @@ public class Objeto {
         this.valor = valor;
     }
 
-    public double getPeso() {
-        return peso;
-    }
-
-    public void setPeso(double peso) {
-        this.peso = peso;
-    }
 
     @Override
     public String toString() {
         return "Objeto{" +
                 "idObjeto=" + idObjeto +
-                ", descricao='" + descricao + '\'' +
-                ", tamanho='" + tamanho + '\'' +
+                ", titulo='" + titulo +
                 ", valor=" + valor +
-                ", peso=" + peso +
                 '}';
     }
 }

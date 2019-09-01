@@ -20,15 +20,28 @@ import levae.client.view.apresentacao.ApresentacaoActivity;
 @SuppressLint("Registered")
 public class BaseActivity extends AppCompatActivity {
 
+    private Snackbar snackbar;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
 
-    public void showSnack(String message) {
-        Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content),
+    public Snackbar showSnack(String message) {
+        snackbar = Snackbar.make(findViewById(android.R.id.content),
                 message, Snackbar.LENGTH_SHORT);
         snackbar.show();
+        return snackbar;
+    }
+
+    public boolean isSnackShowing() {
+        return snackbar.isShown();
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 
     public void onError(String message) {
@@ -51,10 +64,10 @@ public class BaseActivity extends AppCompatActivity {
         return NetworkUtils.isNetworkConnected(getApplicationContext());
     }
 
-
     public void voltaLogin() {
         Intent intent = new Intent(this, ApresentacaoActivity.class);
         startActivity(intent);
         this.finish();
     }
+
 }

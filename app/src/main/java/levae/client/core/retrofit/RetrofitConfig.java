@@ -1,5 +1,8 @@
 package levae.client.core.retrofit;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import java.util.concurrent.TimeUnit;
 
 import levae.client.core.token.MandaToken;
@@ -33,9 +36,12 @@ class RetrofitConfig {
     }
 
     Retrofit config() {
+
+        Gson gson = new GsonBuilder().setLenient().create();
+
         return new Retrofit.Builder()
-                .baseUrl("http://192.168.19.250")
-                .addConverterFactory(GsonConverterFactory.create())
+                .baseUrl("http://200.17.101.22")
+                .addConverterFactory(GsonConverterFactory.create(gson))
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .client(getBuilder())
                 .build();

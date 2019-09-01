@@ -1,36 +1,141 @@
 package levae.client.core.model.demanda;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
+import java.io.Serializable;
+import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.List;
 
+import levae.client.core.model.pagamento.Cartao;
 import levae.client.core.model.usuarios.Cliente;
+import levae.client.core.model.veiculo.TipoVeiculo;
 import levae.client.core.model.veiculo.Veiculo;
-
 
 /**
  * Created by txring on 19/06/2018.
  */
-public class Demanda {
+public class Demanda implements Serializable {
 
+    @SerializedName("idDemanda")
+    @Expose
     private int idDemanda;
+
+    @SerializedName("estado")
+    @Expose
     private String estado;
-    private String nota;
+
+    @SerializedName("nota")
+    @Expose
+    private Double nota;
+
+    @SerializedName("distancia")
+    @Expose
+    private Double distancia;
+
+    @SerializedName("comentario")
+    @Expose
     private String comentario;
+
+    @SerializedName("estadoDemanda")
+    @Expose
+    private String estadoDemanda;
+
+    @SerializedName("estadoPagamento")
+    @Expose
+    private String estadoPagamento;
+
+    @SerializedName("tamanho")
+    @Expose
+    private String tamanho;
+
+    @SerializedName("valorSistema")
+    @Expose
+    private Double valorSistema;
+
+    @SerializedName("valorCliente")
+    @Expose
+    private Double valorCliente;
+
+    @SerializedName("valorTransportador")
+    @Expose
+    private Double valorTransportador;
+
+    @SerializedName("valorTotal")
+    @Expose
+    private Double valorTotal;
+
+    @SerializedName("dataColeta")
+    @Expose
+    private String dataColeta;
+
+    @SerializedName("dataLimite")
+    @Expose
+    private String dataLimite;
+
+    @SerializedName("dataSolicitacao")
+    @Expose
+    private Timestamp dataSolicitacao;
+
+    @SerializedName("dataEntrega")
+    @Expose
+    private Timestamp dataEntrega;
+
+    @SerializedName("localColeta")
+    @Expose
+    private String localColeta;
+
+    @SerializedName("localEntrega")
+    @Expose
+    private String localEntrega;
+
+    @SerializedName("latitudeColeta")
+    @Expose
+    private Double latitudeColeta;
+
+    @SerializedName("longitudeColeta")
+    @Expose
+    private Double longitudeColeta;
+
+    @SerializedName("latitudeEntrega")
+    @Expose
+    private Double latitudeEntrega;
+
+    @SerializedName("longitudeEntrega")
+    @Expose
+    private Double longitudeEntrega;
+
+    @SerializedName("cliente")
+    @Expose
     private Cliente cliente;
+
+    @SerializedName("cartao")
+    @Expose
+    private Cartao cartao;
+
+    @SerializedName("veiculo")
+    @Expose
     private Veiculo veiculo;
+
+    @SerializedName("tituloDemanda")
+    @Expose
+    private String tituloDemanda;
+
+    @SerializedName("listaObjeto")
+    @Expose
     private List<Objeto> listaObjeto;
 
-    public Demanda(int idDemanda, String estado, String nota, String comentario, Cliente cliente, Veiculo veiculo, List<Objeto> listaObjeto) {
-        this.idDemanda = idDemanda;
-        this.estado = estado;
-        this.nota = nota;
-        this.comentario = comentario;
-        this.cliente = cliente;
-        this.veiculo = veiculo;
-        this.listaObjeto = listaObjeto;
+    @SerializedName("tipoVeiculo")
+    @Expose
+    private TipoVeiculo tipoVeiculo;
+
+    public Double getDistancia() {
+        return distancia;
     }
 
-    public Demanda(){
-
+    public void setDistancia(Double distancia) {
+        this.distancia = distancia;
     }
 
     public int getIdDemanda() {
@@ -49,11 +154,11 @@ public class Demanda {
         this.estado = estado;
     }
 
-    public String getNota() {
+    public Double getNota() {
         return nota;
     }
 
-    public void setNota(String nota) {
+    public void setNota(Double nota) {
         this.nota = nota;
     }
 
@@ -65,12 +170,156 @@ public class Demanda {
         this.comentario = comentario;
     }
 
+    public String getEstadoDemanda() {
+        return estadoDemanda;
+    }
+
+    public void setEstadoDemanda(String estadoDemanda) {
+        this.estadoDemanda = estadoDemanda;
+    }
+
+    public String getEstadoPagamento() {
+        return estadoPagamento;
+    }
+
+    public void setEstadoPagamento(String estadoPagamento) {
+        this.estadoPagamento = estadoPagamento;
+    }
+
+    public String getTamanho() {
+        return tamanho;
+    }
+
+    public void setTamanho(String tamanho) {
+        this.tamanho = tamanho;
+    }
+
+    public Double getValorSistema() {
+        return valorSistema;
+    }
+
+    public void setValorSistema(Double valorSistema) {
+        this.valorSistema = valorSistema;
+    }
+
+    public Double getValorCliente() {
+        return valorCliente;
+    }
+
+    public void setValorCliente(Double valorCliente) {
+        this.valorCliente = valorCliente;
+    }
+
+    public Double getValorTransportador() {
+        return valorTransportador;
+    }
+
+    public void setValorTransportador(Double valorTransportador) {
+        this.valorTransportador = valorTransportador;
+    }
+
+    public Double getValorTotal() {
+        return valorTotal;
+    }
+
+    public void setValorTotal(Double valorTotal) {
+        this.valorTotal = valorTotal;
+    }
+
+    public String getDataColeta() {
+        return dataColeta;
+    }
+
+    public void setDataColeta(String dataColeta) {
+        this.dataColeta = dataColeta;
+    }
+
+    public String getDataLimite() {
+        return dataLimite;
+    }
+
+    public void setDataLimite(String dataLimite) {
+        this.dataLimite = dataLimite;
+    }
+
+    public Timestamp getDataSolicitacao() {
+        return dataSolicitacao;
+    }
+
+    public void setDataSolicitacao(Timestamp dataSolicitacao) {
+        this.dataSolicitacao = dataSolicitacao;
+    }
+
+    public Timestamp getDataEntrega() {
+        return dataEntrega;
+    }
+
+    public void setDataEntrega(Timestamp dataEntrega) {
+        this.dataEntrega = dataEntrega;
+    }
+
+    public String getLocalColeta() {
+        return localColeta;
+    }
+
+    public void setLocalColeta(String localColeta) {
+        this.localColeta = localColeta;
+    }
+
+    public String getLocalEntrega() {
+        return localEntrega;
+    }
+
+    public void setLocalEntrega(String localEntrega) {
+        this.localEntrega = localEntrega;
+    }
+
+    public Double getLatitudeColeta() {
+        return latitudeColeta;
+    }
+
+    public void setLatitudeColeta(Double latitudeColeta) {
+        this.latitudeColeta = latitudeColeta;
+    }
+
+    public Double getLongitudeColeta() {
+        return longitudeColeta;
+    }
+
+    public void setLongitudeColeta(Double longitudeColeta) {
+        this.longitudeColeta = longitudeColeta;
+    }
+
+    public Double getLatitudeEntrega() {
+        return latitudeEntrega;
+    }
+
+    public void setLatitudeEntrega(Double latitudeEntrega) {
+        this.latitudeEntrega = latitudeEntrega;
+    }
+
+    public Double getLongitudeEntrega() {
+        return longitudeEntrega;
+    }
+
+    public void setLongitudeEntrega(Double longitudeEntrega) {
+        this.longitudeEntrega = longitudeEntrega;
+    }
+
     public Cliente getCliente() {
         return cliente;
     }
 
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
+    }
+
+    public Cartao getCartao() {
+        return cartao;
+    }
+
+    public void setCartao(Cartao cartao) {
+        this.cartao = cartao;
     }
 
     public Veiculo getVeiculo() {
@@ -89,16 +338,53 @@ public class Demanda {
         this.listaObjeto = listaObjeto;
     }
 
+
+    public String getTituloDemanda() {
+        return tituloDemanda;
+    }
+
+    public void setTituloDemanda(String tituloDemanda) {
+        this.tituloDemanda = tituloDemanda;
+    }
+
+    public TipoVeiculo getTipoVeiculo() {
+        return tipoVeiculo;
+    }
+
+    public void setTipoVeiculo(TipoVeiculo tipoVeiculo) {
+        this.tipoVeiculo = tipoVeiculo;
+    }
+
     @Override
     public String toString() {
-        return "Demanda{" +
-                "idDemanda=" + idDemanda +
+        return "idDemanda=" + idDemanda +
                 ", estado='" + estado + '\'' +
-                ", nota='" + nota + '\'' +
+                ", nota=" + nota +
+                ", distancia=" + distancia +
                 ", comentario='" + comentario + '\'' +
+                ", estadoDemanda='" + estadoDemanda + '\'' +
+                ", estadoPagamento='" + estadoPagamento + '\'' +
+                ", tamanho='" + tamanho + '\'' +
+                ", valorSistema=" + valorSistema +
+                ", valorCliente=" + valorCliente +
+                ", valorTransportador=" + valorTransportador +
+                ", valorTotal=" + valorTotal +
+                ", dataColeta=" + dataColeta +
+                ", dataLimite=" + dataLimite +
+                ", dataSolicitacao=" + dataSolicitacao +
+                ", dataEntrega=" + dataEntrega +
+                ", localColeta='" + localColeta + '\'' +
+                ", localEntrega='" + localEntrega + '\'' +
+                ", latitudeColeta=" + latitudeColeta +
+                ", longitudeColeta=" + longitudeColeta +
+                ", latitudeEntrega=" + latitudeEntrega +
+                ", longitudeEntrega=" + longitudeEntrega +
                 ", cliente=" + cliente +
+                ", cartao=" + cartao +
                 ", veiculo=" + veiculo +
+                ", tituloDemanda='" + tituloDemanda + '\'' +
                 ", listaObjeto=" + listaObjeto +
+                ", tipoVeiculo=" + tipoVeiculo +
                 '}';
     }
 }

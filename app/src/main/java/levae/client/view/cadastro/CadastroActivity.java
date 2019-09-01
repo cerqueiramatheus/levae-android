@@ -6,8 +6,8 @@ import android.os.Bundle;
 import levae.client.R;
 import levae.client.core.base.BaseActivity;
 import levae.client.core.util.ActivityUtils;
-import levae.client.view.cadastroDadosPessoais.CadastroDadosPessoaisFragment;
-import levae.client.view.cadastroLoginSenha.CadastroLoginSenhaFragment;
+import levae.client.view.cadastro.cadastroDadosPessoais.CadastroDadosPessoaisFragment;
+import levae.client.view.cadastro.cadastroLoginSenha.CadastroLoginSenhaFragment;
 import levae.client.view.main.MainActivity;
 
 public class CadastroActivity extends BaseActivity implements CadastroInterface.View {
@@ -36,7 +36,6 @@ public class CadastroActivity extends BaseActivity implements CadastroInterface.
     @Override
     public void goToDadosPessoais() {
         ActivityUtils.addFragment(getSupportFragmentManager(), new CadastroDadosPessoaisFragment(), R.id.cadastro_layout);
-        System.out.println("rodou aqui!!!");
     }
 
     @Override

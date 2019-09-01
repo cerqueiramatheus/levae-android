@@ -4,6 +4,11 @@
     package="levae.client">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+
     <application
         android:name=".core.util.ContextUtil"
         android:allowBackup="true"
@@ -12,24 +17,22 @@
         android:roundIcon="@drawable/abc_vector_test"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".view.pagamento.PagamentoActivity" />
-
+        tools:ignore="GoogleAppIndexingWarning"
+        tools:targetApi="n">
+        <activity android:name=".view.demandaNova.DemandaNovaActivity" />
         <activity
-            android:theme="@style/AppTheme.NoActionBar"
+            android:name=".view.pagamento.PagamentoActivity"
+            android:label="seus cartões" />
+        <activity
             android:name=".view.main.MainActivity"
             android:label="@string/title_activity_main" />
-
         <activity
-            android:name=".view.perfilAlterarInfo.PerfilAlterarInfo"
-            android:theme="@style/AppTheme.NoActionBar"/>
-
-        <activity android:name=".view.pagamentoNovo.PagamentoNovoActivity" />
-
-        <activity android:name=".view.pagamentoDetalhe.PagamentoDetalhe" />
-
-        <activity android:name=".view.perfilAlterarSenha.PerfilAlterarSenha" />
-
+            android:name=".view.perfil.perfilAlterarInfo.PerfilAlterarInfo"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".view.pagamento.pagamentoNovo.PagamentoNovoActivity"
+            android:label="cadastrar cartão" />
+        <activity android:name=".view.perfil.perfilAlterarSenha.PerfilAlterarSenha" />
         <activity android:name=".view.demandaDetalhe.DemandaDetalhe" />
 
         <provider
@@ -40,23 +43,26 @@
         <activity
             android:name=".view.login.LoginActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-
         <activity
             android:name=".view.cadastro.CadastroActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-
         <activity
             android:name=".view.apresentacao.ApresentacaoActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-
         <activity
             android:name=".view.splash.SplashActivity"
             android:theme="@style/AppTheme.Fullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.com.vansuita.pickimage.provider"
+            tools:replace="android:authorities" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

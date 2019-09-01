@@ -13,9 +13,11 @@ public class CreditCard {
     private String month;
     private String year;
     private String cvv;
-    private int parcels;
-    private boolean error;
-    private String token;
+    private CreditCardInterface creditCardInterface;
+
+    public CreditCard(CreditCardInterface creditCardInterface) {
+        this.creditCardInterface = creditCardInterface;
+    }
 
     @JavascriptInterface
     public String getCardNumber() {
@@ -63,30 +65,13 @@ public class CreditCard {
     }
 
     @JavascriptInterface
-    public int getParcels() {
-        return parcels;
-    }
-
-    public void setParcels(int parcels) {
-        this.parcels = parcels;
-    }
-
-    public boolean getError() {
-        return error;
-    }
-
-    @JavascriptInterface
-    public void setError(boolean error) {
-        this.error = error;
-    }
-
-    public String getToken() {
-        return token;
+    public void setError() {
+        creditCardInterface.onError();
     }
 
     @JavascriptInterface
     public void setToken(String token) {
-        this.token = token;
-        System.out.println("OLHA O TOKEN DESTA DESGRAÇA" + token);
+        creditCardInterface.onSuccess(token);
     }
+
 }

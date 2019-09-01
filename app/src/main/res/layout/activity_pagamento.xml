@@ -1,24 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/pagamento_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".view.pagamento.PagamentoActivity">
 
-    <include layout="@layout/content_pagamento" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/pagamento_btn_novo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/fab_margin"
+        android:backgroundTint="@color/colorPrimary"
+        android:fontFamily="@font/title_bold"
+        android:text="novo cartão"
+        android:textColor="@color/textColorPrimary"
+        app:icon="@drawable/ic_add"
+        app:iconTint="@color/textColorPrimary" />
+
+    <RelativeLayout
+        android:id="@+id/pagamento_no_payment_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:paddingBottom="100dp"
+        android:visibility="invisible">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/pagamento_animation"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/no_payment" />
+
+        <TextView
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/pagamento_animation"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/title_bold"
+            android:text="adicione um cartão para começar!"
+            android:textAlignment="center"
+            android:textColor="@color/textColorSecondary" />
+    </RelativeLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/pagamento_list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_margin="8dp" />
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</RelativeLayout>

@@ -8,6 +8,7 @@ import levae.client.core.model.usuarios.Cliente;
 import levae.client.core.retrofit.Erro;
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 

@@ -9,6 +9,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
+
+import com.google.android.material.snackbar.Snackbar;
+
 import levae.client.R;
 
 public class BaseFragment extends Fragment {
@@ -47,8 +50,8 @@ public class BaseFragment extends Fragment {
         }
     }
 
-    public void showSnack(String msg) {
-        mActivity.showSnack(msg);
+    public Snackbar showSnack(String msg) {
+        return mActivity.showSnack(msg);
     }
 
     public boolean checkConnection() {

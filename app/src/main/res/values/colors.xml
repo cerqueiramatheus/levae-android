@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <color name="colorPrimary">#c3073f</color>
     <color name="colorPrimaryLight">#fc5069</color>
+    <color name="colorPrimaryLowDark">#b9063c</color>
     <color name="colorPrimaryDark">#8b001a</color>
     <color name="textColorPrimary">#E5E5E5</color>
     <color name="textColorSecondary">#1A1A1D</color>
@@ -9,5 +10,4 @@
     <color name="loginPageBackgroundColor">@color/colorPrimary</color>
     <color name="productGridBackgroundColor">#FFFBFA</color>
     <color name="colorControlActivated">#FBB8AC</color>
-    <color name="mtrl_textinput_default_box_stroke_color" tools:override="true">@color/colorPrimaryDark</color>
 </resources>

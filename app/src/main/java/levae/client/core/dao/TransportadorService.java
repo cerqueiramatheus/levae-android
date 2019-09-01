@@ -8,7 +8,7 @@ import retrofit2.http.POST;
 
 public interface TransportadorService {
 
-    @POST("transportador/cadastrar")
+    @POST("transportador/setHash")
     Call<Erro> cadastrar(@Body Transportador transportador);
 
     @POST("transportador/alterar")

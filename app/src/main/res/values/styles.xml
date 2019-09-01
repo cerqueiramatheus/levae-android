@@ -7,16 +7,19 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="android:textColorPrimary">@color/textColorPrimary</item>
         <item name="colorAccent">@color/colorPrimary</item>
-        <item name="android:fontFamily">@font/korolev</item>
-        <item name="android:statusBarColor">@color/colorPrimary</item>
+        <item name="android:fontFamily">@font/text_regular</item>
         <item name="android:cursorVisible">false</item>
         <item name="android:colorBackground">@android:color/transparent</item>
         <item name="android:windowContentTransitions">true</item>
-        <item name="android:navigationBarColor">@android:color/black</item>
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
-        <item name="android:toolbarStyle">@style/Toolbar.ToolbarLayout</item>
-        <item name="toolbarStyle">@style/Toolbar.ToolbarLayout</item>
+        <item name="android:statusBarColor">@color/colorPrimaryLowDark</item>
+
         <item name="snackbarStyle">@style/Widget.MaterialComponents.Snackbar.Snack</item>
+        <item name="android:navigationBarColor">@android:color/black</item>
+        <item name="actionBarStyle">@style/ActionBar</item>
+        <item name="android:actionBarStyle">@style/ActionBar</item>
+
+
     </style>
 
     <style name="Widget.MaterialComponents.Snackbar.Snack" parent="Widget.MaterialComponents.Snackbar">
@@ -30,26 +33,28 @@
         <item name="android:statusBarColor">@color/colorPrimary</item>
     </style>
 
-    <style name="AppTheme.Fullscreen" parent="Theme.MaterialComponents.NoActionBar">
+    <style name="AppTheme.Fullscreen" parent="ThemeOverlay.AppCompat.ActionBar">
         <item name="android:windowFullscreen">true</item>
         <item name="android:statusBarColor">@android:color/white</item>
         <item name="android:colorBackground">@android:color/white</item>
-        <item name="android:windowLayoutInDisplayCutoutMode">shortEdges</item>
     </style>
 
-    <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+    <style name="ActionBar.TitleText" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
         <item name="android:textSize">20sp</item>
-        <item name="android:fontFamily">@font/heavy</item>
-        <item name="android:layout_gravity">center</item>
+        <item name="android:fontFamily">@font/text_regular</item>
+        <item name="android:gravity">center</item>
     </style>
 
-    <style name="Toolbar.ToolbarLayout" parent="Widget.AppCompat.Toolbar">
-        <item name="android:background">@color/colorPrimary</item>
-        <item name="android:textColor">@color/textColorPrimary</item>
-        <item name="android:textAppearance">@style/Toolbar.TitleText</item>
+    <style name="ActionBar" parent="Widget.MaterialComponents.Light.ActionBar.Solid">
+
+        <item name="android:fitsSystemWindows">true</item>
+        <item name="titleTextStyle">@style/ActionBar.TitleText</item>
+
+        <item name="android:titleTextAppearance">@style/ActionBar.TitleText</item>
+        <item name="android:titleTextStyle">@style/ActionBar.TitleText</item>
         <item name="android:actionMenuTextColor">@color/textColorPrimary</item>
         <item name="android:textColorPrimary">@color/textColorPrimary</item>
-        <item name="android:elevation">0dp</item>
+        <item name="android:backgroundTint">@color/quantum_grey</item>
     </style>
 
     <style name="Tab.TabLayout" parent="Widget.MaterialComponents.TabLayout">
@@ -64,5 +69,29 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light">
         <item name="android:background">@android:color/transparent</item>
+    </style>
+
+    <style name="Theme.CustomDialog" parent="@android:style/Theme.Translucent.NoTitleBar">
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:background">#ff90ff90</item>
+    </style>
+
+    <style name="DialogTheme">
+        <item name="android:colorPrimary">@color/textColorPrimary</item>
+        <item name="android:colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="android:colorAccent">@color/colorPrimary</item>
+        <item name="android:textColorPrimary">@color/textColorSecondary</item>
+        <item name="android:textColorSecondary">@color/textColorSecondary</item>
+        <item name="android:fontFamily">@font/title_bold</item>
+        <item name="android:buttonBarPositiveButtonStyle">@style/DialogButtons</item>
+        <item name="android:buttonBarNegativeButtonStyle">@style/DialogButtons</item>
+    </style>
+
+    <style name="DialogButtons">
+        <item name="android:layout_margin">5dp</item>
+        <item name="android:textColor">@color/textColorPrimary</item>
+        <item name="android:fontFamily">@font/title_bold</item>
     </style>
 </resources>

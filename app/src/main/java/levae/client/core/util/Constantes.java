@@ -13,4 +13,6 @@ public class Constantes {
 
     public static String USUARIO_NOT_FOUND = "NOTFOUND";
 
+    public static String CARTAO_INATIVO = "INATIVO";
+
 }
