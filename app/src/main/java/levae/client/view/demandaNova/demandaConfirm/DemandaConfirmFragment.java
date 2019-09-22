@@ -136,6 +136,7 @@ public class DemandaConfirmFragment extends BaseFragment implements DemandaConfi
 
     @Override
     public void message(String msg) {
+        customProgressBar.hide();
         showSnack(msg);
     }
 

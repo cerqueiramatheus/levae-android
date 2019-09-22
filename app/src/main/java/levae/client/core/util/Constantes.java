@@ -12,6 +12,7 @@ public class Constantes {
     public static String ERRO_CELULAR = "celular inválido";
 
     public static String USUARIO_NOT_FOUND = "NOTFOUND";
+    public static String USUARIO_REJEITADO = "REJEITADO";
 
     public static String CARTAO_INATIVO = "INATIVO";
 

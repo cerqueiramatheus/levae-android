@@ -53,7 +53,6 @@ public class DemandaCartaoFragment extends BaseFragment implements DemandaCartao
         layoutManager = new LinearLayoutManager(getActivity());
         ButterKnife.bind(this, view);
         new DemandaCartaoPresenter(this, (DemandaNovaActivity) getActivity());
-        mPresenter.subscribe();
 
         view.setOnKeyListener((view1, i, keyEvent) -> {
             if ((i == KeyEvent.KEYCODE_BACK) && (keyEvent.getAction() == KeyEvent.ACTION_UP)) {
@@ -71,9 +70,9 @@ public class DemandaCartaoFragment extends BaseFragment implements DemandaCartao
     }
 
     @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-
+    public void onResume() {
+        super.onResume();
+        mPresenter.subscribe();
     }
 
     @Override
@@ -81,7 +80,9 @@ public class DemandaCartaoFragment extends BaseFragment implements DemandaCartao
         demandaCartaoList.setLayoutManager(layoutManager);
         demandaCartaoList.setAdapter(pagamentoAdapter);
         demandaCartaoList.addItemDecoration(new DividerItemDecoration(demandaCartaoList.getContext(), DividerItemDecoration.VERTICAL));
-        customProgressBar.hide();
+        if (customProgressBar != null) {
+            customProgressBar.hide();
+        }
     }
 
     @Override

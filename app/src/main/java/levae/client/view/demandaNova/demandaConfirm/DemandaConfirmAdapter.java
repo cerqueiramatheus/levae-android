@@ -1,35 +1,40 @@
-package levae.client.view.demandaApresentacao;
+package levae.client.view.demandaNova.demandaConfirm;
 
 import android.content.Context;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
-import com.airbnb.lottie.LottieAnimationView;
+import com.squareup.picasso.Picasso;
+
+import java.util.List;
 
 import levae.client.R;
-import levae.client.core.enums.MenuEnum;
-import levae.client.core.enums.SliderEnum;
+import levae.client.core.model.demanda.Objeto;
 
 /**
  * Created by txring on 22/07/2019.
  */
-public class DemandaApresentacaoAdapter extends PagerAdapter {
+public class DemandaConfirmAdapter extends PagerAdapter {
 
     private Context context;
+    private List<Objeto> listaObjeto;
 
-    DemandaApresentacaoAdapter(Context context) {
+    DemandaConfirmAdapter(Context context, List<Objeto> lista) {
         this.context = context;
+        this.listaObjeto = lista;
     }
 
     @Override
     public int getCount() {
-        return MenuEnum.values().length;
+        return listaObjeto.size();
     }
 
     @Override
@@ -41,14 +46,17 @@ public class DemandaApresentacaoAdapter extends PagerAdapter {
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, final int position) {
         LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = layoutInflater.inflate(R.layout.pager_slider, null);
+        View view = layoutInflater.inflate(R.layout.picture_slider, null);
 
-        LottieAnimationView lottieAnimationView = view.findViewById(R.id.pager_slider_img);
+        System.out.println("funcionou? " +
+                view.isAttachedToWindow());
 
-        lottieAnimationView.setAnimation(SliderEnum.values()[position].getImagem());
+        ImageView imageView = view.findViewById(R.id.picture_slider_img);
 
-        TextView textView = view.findViewById(R.id.pager_slider_text);
-        textView.setText(SliderEnum.values()[position].getDescricao());
+        Picasso.get().load(Uri.fromFile(listaObjeto.get(position).getFoto())).centerCrop().fit().into(imageView);
+
+        TextView textView = view.findViewById(R.id.picture_slider_text);
+        textView.setText(listaObjeto.get(position).getTitulo());
 
         ViewPager viewPager = (ViewPager) container;
         viewPager.addView(view, 0);

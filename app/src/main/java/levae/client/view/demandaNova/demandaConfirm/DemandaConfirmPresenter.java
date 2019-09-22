@@ -78,6 +78,7 @@ public class DemandaConfirmPresenter implements DemandaConfirmInterface.Presente
 
         Demanda demanda = mRoot.getDemanda();
         demanda.setListaObjeto(mRoot.getLista());
+        demanda.setTipoVeiculo(mRoot.getTipoVeiculo());
 
         mCompositeDisposable.add(demandaInteractor.inserir(demanda).subscribeWith(new DisposableSingleObserver<Demanda>() {
             @Override

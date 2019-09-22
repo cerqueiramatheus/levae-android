@@ -4,6 +4,8 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.provider.Settings;
 
+import java.sql.Timestamp;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -40,5 +42,23 @@ public final class FuncoesPadrao {
 
     public static String getTimeStamp() {
         return new SimpleDateFormat("yyyyMMdd", Locale.US).format(new Date());
+    }
+
+    public static String getData(String dataInicio, String dataFim){
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+
+        Date dataColeta = new Date(Timestamp.valueOf(dataInicio).getTime());
+
+        Date dataLimite = null;
+
+        try {
+            dataLimite = new SimpleDateFormat("yyyy-MM-dd").parse(dataFim);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+
+        return format.format(dataColeta) + " até " + format.format(dataLimite);
+
     }
 }

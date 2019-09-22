@@ -25,13 +25,14 @@
 
         <TextView
             android:id="@+id/row_menu_title"
+            style="@style/CommonTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:textSize="14sp" />
+            android:layout_marginStart="16dp" />
 
         <TextView
             android:id="@+id/row_menu_text"
+            style="@style/CommonText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"

@@ -40,7 +40,7 @@ class RetrofitConfig {
         Gson gson = new GsonBuilder().setLenient().create();
 
         return new Retrofit.Builder()
-                .baseUrl("http://200.17.101.22")
+                .baseUrl("http://200.17.101.22/api/public/")
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .client(getBuilder())

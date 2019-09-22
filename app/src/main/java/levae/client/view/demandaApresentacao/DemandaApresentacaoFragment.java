@@ -26,6 +26,7 @@ public class DemandaApresentacaoFragment extends BaseFragment implements Demanda
     @BindView(R.id.demanda_nova_view_pager)
     ViewPager viewPager;
 
+    private DemandaApresentacaoInterface.Presenter mPresenter;
     private Timer timer;
 
     public DemandaApresentacaoFragment() {
@@ -45,6 +46,8 @@ public class DemandaApresentacaoFragment extends BaseFragment implements Demanda
         DemandaApresentacaoAdapter viewPagerAdapter = new DemandaApresentacaoAdapter(view.getContext());
 
         viewPager.setAdapter(viewPagerAdapter);
+
+        new DemandaApresentacaoPresenter(this);
 
         return view;
     }
@@ -72,12 +75,19 @@ public class DemandaApresentacaoFragment extends BaseFragment implements Demanda
 
     @OnClick(R.id.demanda_apresentacao_btn_mandar)
     public void onMandarClick() {
-        Objects.requireNonNull(getActivity()).startActivity(new Intent(getActivity(), DemandaNovaActivity.class));
+        mPresenter.loadParts();
     }
 
     @Override
     public void setPresenter(DemandaApresentacaoInterface.Presenter presenter) {
+        this.mPresenter = presenter;
+    }
 
+    @Override
+    public void moveToNovaDemanda(Bundle bundle) {
+        Intent intent = new Intent(getActivity(), DemandaNovaActivity.class);
+        intent.putExtras(bundle);
+        Objects.requireNonNull(getActivity()).startActivity(intent);
     }
 
     public class SliderTimer extends TimerTask {

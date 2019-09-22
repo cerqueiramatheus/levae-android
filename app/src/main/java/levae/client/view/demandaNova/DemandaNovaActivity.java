@@ -13,6 +13,7 @@ import levae.client.R;
 import levae.client.core.base.BaseActivity;
 import levae.client.core.model.demanda.Demanda;
 import levae.client.core.model.demanda.Objeto;
+import levae.client.core.model.pagamento.Cartao;
 import levae.client.core.model.veiculo.TipoVeiculo;
 import levae.client.core.util.ActivityUtils;
 import levae.client.core.util.CustomDialog;
@@ -37,6 +38,9 @@ public class DemandaNovaActivity extends BaseActivity implements DemandaNovaInte
     private Calendar coletaCalendar;
     private Calendar entregaCalendar;
     private TipoVeiculo tipoVeiculo;
+    private List<TipoVeiculo> tipoVeiculoList;
+    private List<Cartao> cartaoList;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +48,9 @@ public class DemandaNovaActivity extends BaseActivity implements DemandaNovaInte
         setContentView(R.layout.activity_demanda_nova);
 
         this.demanda = new Demanda();
+
+        this.cartaoList = (ArrayList<Cartao>) getIntent().getExtras().get("listaCartao");
+        this.tipoVeiculoList = (ArrayList<TipoVeiculo>) getIntent().getExtras().get("listaTipo");
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -57,6 +64,14 @@ public class DemandaNovaActivity extends BaseActivity implements DemandaNovaInte
 
         new DemandaNovaPresenter(this);
 
+    }
+
+    public List<TipoVeiculo> getListaTipoVeiculo() {
+        return tipoVeiculoList;
+    }
+
+    public List<Cartao> getListaCartao() {
+        return cartaoList;
     }
 
     public TipoVeiculo getTipoVeiculo() {

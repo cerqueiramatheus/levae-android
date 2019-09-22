@@ -14,7 +14,7 @@ import androidx.appcompat.widget.AppCompatAutoCompleteTextView;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.libraries.places.widget.Autocomplete;
-import com.google.android.material.picker.MaterialStyledDatePickerDialog;
+import com.google.android.material.datepicker.MaterialStyledDatePickerDialog;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 

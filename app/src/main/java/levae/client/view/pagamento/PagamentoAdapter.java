@@ -31,7 +31,6 @@ public class PagamentoAdapter extends RecyclerView.Adapter<PagamentoAdapter.Cust
 
     class CustomViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        //Get a reference to the Views in our layout
         final View mView;
         ImageView bandeira;
         TextView sequencia;
@@ -58,14 +57,12 @@ public class PagamentoAdapter extends RecyclerView.Adapter<PagamentoAdapter.Cust
         return new CustomViewHolder(view);
     }
 
-    //Set the data
     @Override
     public void onBindViewHolder(@NonNull CustomViewHolder holder, int position) {
         holder.bandeira.setImageResource(CreditCardEnum.valueOf(listaCartao.get(position).getBandeira()).getMiniIcon());
         holder.sequencia.setText(listaCartao.get(position).getSequencia());
     }
 
-    //Calculate the item count for the RecylerView
     @Override
     public int getItemCount() {
         return listaCartao.size();

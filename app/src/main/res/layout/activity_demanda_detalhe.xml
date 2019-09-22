@@ -1,8 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.demandaDetalhe.DemandaDetalhe">
+    android:background="@color/textColorPrimary"
+    tools:context=".view.demandaDetalhe.DemandaDetalheActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/demanda_detalhe_card_objetos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/demanda_detalhe_objeto_fotos"
+        android:layout_marginHorizontal="4dp"
+        android:layout_marginVertical="2dp"
+        app:cardCornerRadius="4dp"
+        app:contentPadding="4dp">
+
+        <TextView
+            android:id="@+id/demanda_detalhe_objetos"
+            style="@style/CommonTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="aaaaaaaaaaaa"
+            android:textAlignment="center" />
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/demanda_detalhe_card_data"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/demanda_detalhe_card_objetos"
+        android:layout_marginHorizontal="4dp"
+        android:layout_marginVertical="2dp"
+        app:cardCornerRadius="4dp"
+        app:contentPadding="4dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/demanda_detalhe_data"
+                style="@style/CommonTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:text="aaaaaaaaaaaa"
+                android:textAlignment="center" />
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/demanda_detalhe_card_localizacao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/demanda_detalhe_card_data"
+        android:layout_marginHorizontal="4dp"
+        android:layout_marginVertical="2dp"
+        app:cardCornerRadius="4dp"
+        app:contentPadding="4dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/demanda_detalhe_btn_localizacao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/demanda_detalhe_localizacao"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/title_regular"
+                android:text="ver no Google Maps"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/demanda_detalhe_localizacao"
+                style="@style/CommonTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:text="aaaaaaaaaaaa"
+                android:textAlignment="center" />
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/demanda_detalhe_objeto_fotos"
+        android:layout_width="match_parent"
+        android:layout_height="175dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginHorizontal="4dp"
+        android:layout_marginVertical="2dp"
+        android:layout_marginTop="4dp"
+        android:orientation="vertical"
+        />
+</RelativeLayout>

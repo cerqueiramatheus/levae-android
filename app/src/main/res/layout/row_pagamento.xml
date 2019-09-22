@@ -18,10 +18,10 @@
 
     <TextView
         android:id="@+id/row_pagamento_sequencia"
+        style="@style/CommonTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:layout_marginStart="16dp"
-        android:textSize="14sp" />
+        android:layout_marginStart="16dp" />
 
 </LinearLayout>

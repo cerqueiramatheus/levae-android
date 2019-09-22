@@ -55,12 +55,12 @@ public class CadastroPresenter implements CadastroInterface.Presenter {
         cliente.setEmail(email);
         cliente.setSenha(senha);
 
-        (new Services().getUsuarioService()).cadastrar(new Cliente(email, senha))
+        (new Services().getUsuarioService()).cadastrar(cliente)
                 .enqueue(new Callback<Cliente>() {
                     @Override
                     public void onResponse(Call<Cliente> call, Response<Cliente> response) {
                         if (response.body() != null) {
-                            if (!response.body().getMensagem().equals(Constantes.USUARIO_NOT_FOUND)) {
+                            if (!response.body().getSituacao().equals(Constantes.USUARIO_REJEITADO)) {
                                 UserUtils.setToken(response.headers().get("Authorization"));
                                 UserUtils.setCliente(response.body());
                                 mView.goToMain();

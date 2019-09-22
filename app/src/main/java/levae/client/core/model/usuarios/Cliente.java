@@ -6,9 +6,6 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
-import java.util.List;
-
-import levae.client.core.model.pagamento.Cartao;
 
 /**
  * Created by txring on 19/06/2018.
@@ -16,29 +13,29 @@ import levae.client.core.model.pagamento.Cartao;
 
 public class Cliente extends Pessoa implements Serializable {
 
-    public Cliente(){
+    public Cliente() {
 
     }
 
-    public Cliente(String email, String senha){
+    public Cliente(String email, String senha) {
         this.setEmail(email);
         this.setSenha(senha);
     }
 
     @SerializedName("idCliente")
     @Expose
-    private int idUsuario;
+    private int idCliente;
 
     @SerializedName("reputacao")
     @Expose
     private double reputacao;
 
-    public int getIdUsuario() {
-        return idUsuario;
+    public int getIdCliente() {
+        return idCliente;
     }
 
-    public void setIdUsuario(int idUsuario) {
-        this.idUsuario = idUsuario;
+    public void setIdCliente(int idCliente) {
+        this.idCliente = idCliente;
     }
 
     public double getReputacao() {
@@ -53,9 +50,10 @@ public class Cliente extends Pessoa implements Serializable {
     @Override
     public String toString() {
         return "Cliente{" +
-                "idCliente=" + getIdUsuario() +
+                "idCliente=" + getIdCliente() +
                 ", email=" + getEmail() +
                 ", senha=" + getSenha() +
+                ", nome=" + getNome() +
                 ", reputacao=" + getReputacao() +
                 '}';
     }

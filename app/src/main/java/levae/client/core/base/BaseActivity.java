@@ -69,5 +69,4 @@ public class BaseActivity extends AppCompatActivity {
         startActivity(intent);
         this.finish();
     }
-
 }

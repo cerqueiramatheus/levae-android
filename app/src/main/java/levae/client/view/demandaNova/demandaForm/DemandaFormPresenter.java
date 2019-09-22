@@ -7,11 +7,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.List;
 
-import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.observers.DisposableSingleObserver;
-import levae.client.core.interactor.TipoVeiculoInteractor;
 import levae.client.core.model.demanda.Demanda;
 import levae.client.core.model.veiculo.TipoVeiculo;
 import levae.client.view.demandaNova.DemandaNovaInterface;
@@ -23,9 +19,6 @@ public class DemandaFormPresenter implements DemandaFormInterface.Presenter {
 
     private DemandaFormInterface.View mView;
     private DemandaNovaInterface.View mRoot;
-    private CompositeDisposable mCompositeDisposable;
-    private TipoVeiculoInteractor tipoVeiculoInteractor;
-    private List<TipoVeiculo> tipoVeiculoList;
     private TipoVeiculo tipoVeiculo;
     private Place coletaPlace;
     private Place entregaPlace;
@@ -35,8 +28,6 @@ public class DemandaFormPresenter implements DemandaFormInterface.Presenter {
     DemandaFormPresenter(DemandaFormInterface.View view, DemandaNovaInterface.View root) {
         this.mRoot = root;
         this.mView = view;
-        this.mCompositeDisposable = new CompositeDisposable();
-        this.tipoVeiculoInteractor = new TipoVeiculoInteractor();
         mView.setPresenter(this);
 
         if (mRoot.getColetaCalendar() != null && mRoot.getEntregaCalendar() != null && mRoot.getColetaPlace() != null && mRoot.getEntregaPlace() != null && mRoot.getTipoVeiculo() != null) {
@@ -82,7 +73,7 @@ public class DemandaFormPresenter implements DemandaFormInterface.Presenter {
 
     @Override
     public void setTipoVeiculo(String tipo) {
-        for (TipoVeiculo tp : tipoVeiculoList) {
+        for (TipoVeiculo tp : mRoot.getListaTipoVeiculo()) {
             if (tp.getDescricao().equals(tipo)) {
                 this.tipoVeiculo = tp;
                 mRoot.setTipoVeiculo(tipoVeiculo);
@@ -175,27 +166,14 @@ public class DemandaFormPresenter implements DemandaFormInterface.Presenter {
 
     @Override
     public void subscribe() {
-        mCompositeDisposable.add(tipoVeiculoInteractor.getLista().subscribeWith(new DisposableSingleObserver<List<TipoVeiculo>>() {
-            @Override
-            public void onSuccess(List<TipoVeiculo> tipoVeiculos) {
-                if (tipoVeiculos.size() > 0) {
-                    tipoVeiculoList = tipoVeiculos;
 
-                    ArrayList<String> stringArrayList = new ArrayList<>();
+        ArrayList<String> stringArrayList = new ArrayList<>();
 
-                    for (TipoVeiculo tpVeiculo : tipoVeiculos) {
-                        stringArrayList.add(tpVeiculo.getDescricao());
-                    }
+        for (TipoVeiculo tpVeiculo : mRoot.getListaTipoVeiculo()) {
+            stringArrayList.add(tpVeiculo.getDescricao());
+        }
 
-                    mView.setListaVeiculo(stringArrayList);
-                }
-            }
-
-            @Override
-            public void onError(Throwable e) {
-
-            }
-        }));
+        mView.setListaVeiculo(stringArrayList);
     }
 
     @Override

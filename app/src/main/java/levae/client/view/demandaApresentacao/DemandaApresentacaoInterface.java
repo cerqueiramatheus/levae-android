@@ -1,5 +1,7 @@
 package levae.client.view.demandaApresentacao;
 
+import android.os.Bundle;
+
 import levae.client.core.base.BasePresenter;
 import levae.client.core.base.BaseView;
 
@@ -10,9 +12,14 @@ public interface DemandaApresentacaoInterface {
 
     interface View extends BaseView<Presenter> {
 
+        void moveToNovaDemanda(Bundle bundle);
+
+        void onError(String msg);
+
     }
 
     interface Presenter extends BasePresenter {
 
+        void loadParts();
     }
 }

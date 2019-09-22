@@ -16,7 +16,7 @@ public class Objeto implements Serializable {
     @Expose
     private int idObjeto;
 
-    @SerializedName("titulo")
+    @SerializedName("tituloObjeto")
     @Expose
     private String titulo;
 

@@ -1,7 +1,5 @@
 package levae.client.view.demandaNova;
 
-import android.content.Context;
-
 import com.google.android.libraries.places.api.model.Place;
 
 import java.util.Calendar;
@@ -11,6 +9,7 @@ import levae.client.core.base.BasePresenter;
 import levae.client.core.base.BaseView;
 import levae.client.core.model.demanda.Demanda;
 import levae.client.core.model.demanda.Objeto;
+import levae.client.core.model.pagamento.Cartao;
 import levae.client.core.model.veiculo.TipoVeiculo;
 
 /**
@@ -63,6 +62,10 @@ public class DemandaNovaInterface {
         void setTipoVeiculo(TipoVeiculo tipoVeiculo);
 
         void backToMain();
+
+        List<TipoVeiculo> getListaTipoVeiculo();
+
+        List<Cartao> getListaCartao();
 
     }
 

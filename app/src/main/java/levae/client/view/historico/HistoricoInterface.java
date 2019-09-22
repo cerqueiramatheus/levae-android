@@ -6,10 +6,10 @@ import levae.client.core.base.BaseView;
 /**
  * Created by txring on 01/05/2019.
  */
-interface HistoricoInterface {
+public interface HistoricoInterface {
 
     interface View extends BaseView<Presenter> {
-
+        int getPosition();
     }
 
     interface Presenter extends BasePresenter {

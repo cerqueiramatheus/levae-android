@@ -1,11 +1,10 @@
 package levae.client.core.interactor;
 
-import android.util.Pair;
-
 import com.google.gson.Gson;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import io.reactivex.Single;
@@ -14,12 +13,11 @@ import io.reactivex.schedulers.Schedulers;
 import levae.client.core.dao.DemandaService;
 import levae.client.core.model.demanda.Demanda;
 import levae.client.core.model.demanda.Objeto;
-import levae.client.core.model.usuarios.Cliente;
-import levae.client.core.retrofit.Erro;
 import levae.client.core.retrofit.Services;
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 
 
@@ -34,16 +32,6 @@ public class DemandaInteractor {
         service = new Services().getDemandaService();
     }
 
-    public Call<Erro> gerarDemanda(Cliente cliente, List<Objeto> listaObjeto, Pair<Long, Long> localizacao) {
-
-        Demanda demanda = new Demanda();
-        demanda.setCliente(cliente);
-        demanda.setListaObjeto(listaObjeto);
-
-        return service.cadastrar(demanda);
-
-    }
-
     public Single<Demanda> getInfos(Demanda demanda) {
         return service.getValor(demanda)
                 .subscribeOn(Schedulers.computation())
@@ -51,7 +39,6 @@ public class DemandaInteractor {
     }
 
     public Single<Demanda> inserir(Demanda demanda) {
-
         List<MultipartBody.Part> imageParts = new ArrayList<>();
 
         for (Objeto objeto : demanda.getListaObjeto()) {
@@ -64,5 +51,47 @@ public class DemandaInteractor {
         return service.inserir(demandaBody, imageParts)
                 .subscribeOn(Schedulers.computation())
                 .observeOn(AndroidSchedulers.mainThread());
+    }
+
+    public Single<List<Demanda>> getListaAberta(int id) {
+        HashMap<String, Integer> hashMap = new HashMap<>();
+        hashMap.put("id", id);
+
+        return service.getListaAberta(hashMap)
+                .subscribeOn(Schedulers.computation())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+
+    public Single<List<Demanda>> getListaTransporte(int id) {
+        HashMap<String, Integer> hashMap = new HashMap<>();
+        hashMap.put("id", id);
+
+        return service.getListaTransporte(hashMap)
+                .subscribeOn(Schedulers.computation())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+
+    public Single<List<Demanda>> getListaFinalizada(int id) {
+        HashMap<String, Integer> hashMap = new HashMap<>();
+        hashMap.put("id", id);
+
+        return service.getListaFinalizada(hashMap)
+                .subscribeOn(Schedulers.computation())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+
+
+    public Single<Demanda> cancelarDemanda(Demanda demanda) {
+        return service.cancelar(demanda)
+                .subscribeOn(Schedulers.computation())
+                .observeOn(AndroidSchedulers.mainThread());
+    }
+
+    public Call<ResponseBody> getFoto(int idDemanda, int idObjeto){
+        HashMap<String, Integer> hashMap = new HashMap<>();
+        hashMap.put("idDemanda", idDemanda);
+        hashMap.put("idObjeto", idObjeto);
+
+        return service.getFoto(hashMap);
     }
 }

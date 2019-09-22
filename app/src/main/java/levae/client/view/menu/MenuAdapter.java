@@ -20,13 +20,12 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.CustomViewHold
 
     private OnItemClickListener mListener;
 
-    public MenuAdapter(OnItemClickListener listener) {
+    MenuAdapter(OnItemClickListener listener) {
         this.mListener = listener;
     }
 
     class CustomViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        //Get a reference to the Views in our layout
         final View mView;
         ImageView img;
         TextView title;

@@ -29,7 +29,6 @@ public class ObjetoListAdapter extends RecyclerView.Adapter<ObjetoListAdapter.Cu
 
     class CustomViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        //Get a reference to the Views in our layout
         final View mView;
         TextView titulo;
         TextView valor;
@@ -56,15 +55,13 @@ public class ObjetoListAdapter extends RecyclerView.Adapter<ObjetoListAdapter.Cu
         return new CustomViewHolder(view);
     }
 
-    //Set the data
     @Override
     public void onBindViewHolder(@NonNull CustomViewHolder holder, int position) {
-
+        String valor = "R$" + listaObjeto.get(position).getValor();
         holder.titulo.setText(listaObjeto.get(position).getTitulo());
-        holder.valor.setText("R$" + listaObjeto.get(position).getValor());
+        holder.valor.setText(valor);
     }
 
-    //Calculate the item count for the RecylerView
     @Override
     public int getItemCount() {
         return listaObjeto.size();

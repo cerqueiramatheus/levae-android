@@ -37,23 +37,4 @@ public class ClienteInteractor {
         return null;
     }
 
-    public static void main(String[] args) {
-        Cliente cliente = new Cliente();
-        cliente.setEmail("teste");
-        cliente.setSenha("teste");
-
-        (new Services().getUsuarioService().login(cliente)).enqueue(new Callback<Cliente>() {
-            @Override
-            public void onResponse(Call<Cliente> call, Response<Cliente> response) {
-                System.out.println("a");
-            }
-
-            @Override
-            public void onFailure(Call<Cliente> call, Throwable t) {
-                t.getCause().printStackTrace();
-                System.out.println(t.toString());
-                System.out.println(call.toString());
-            }
-        });
-    }
 }

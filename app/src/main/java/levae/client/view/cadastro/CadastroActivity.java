@@ -61,7 +61,7 @@ public class CadastroActivity extends BaseActivity implements CadastroInterface.
 
     @Override
     public void setError(String msg) {
-
+        showSnack(msg);
     }
 
 }

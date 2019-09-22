@@ -14,24 +14,30 @@ import levae.client.view.demandaApresentacao.DemandaApresentacaoFragment;
 import levae.client.view.historico.HistoricoFragment;
 import levae.client.view.menu.MenuFragment;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity implements MainInterface.View {
 
     @BindView(R.id.bottom_nav)
     BottomNavigationView bottomNav;
+
+    private HistoricoFragment historicoFragment;
+
+    private MainInterface.Presenter mPresenter;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = item -> {
         switch (item.getItemId()) {
             case R.id.nav_history:
                 ActivityUtils.replaceFragment(getSupportFragmentManager(), new HistoricoFragment(), R.id.main_layout, false);
-                ActionBarUtils.setTitle(getSupportActionBar(), "histórico de transportes");
+                ActionBarUtils.hide(getSupportActionBar());
                 return true;
+
             case R.id.nav_send:
                 getSupportActionBar().setShowHideAnimationEnabled(false);
                 ActionBarUtils.hide(getSupportActionBar());
                 ActivityUtils.replaceFragment(getSupportFragmentManager(), new DemandaApresentacaoFragment(), R.id.main_layout, false);
                 //ActionBarUtils.setTitle(getSupportActionBar(), "adicione objetos");
                 return true;
+
             case R.id.nav_menu:
                 ActivityUtils.replaceFragment(getSupportFragmentManager(), new MenuFragment(), R.id.main_layout, false);
                 ActionBarUtils.setTitle(getSupportActionBar(), "menu");
@@ -50,11 +56,22 @@ public class MainActivity extends BaseActivity {
 
         ButterKnife.bind(this);
 
-        ActivityUtils.addFragment(getSupportFragmentManager(), new HistoricoFragment(), R.id.main_layout);
-        getSupportActionBar().setTitle("histórico");
+        ActionBarUtils.hide(getSupportActionBar());
+
+        if (historicoFragment == null) {
+            historicoFragment = new HistoricoFragment();
+            ActivityUtils.addFragment(getSupportFragmentManager(), historicoFragment, R.id.main_layout);
+            getSupportActionBar().setTitle("histórico");
+        }
 
         bottomNav.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
+        new MainPresenter(this);
+
     }
 
+    @Override
+    public void setPresenter(MainInterface.Presenter presenter) {
+        this.mPresenter = presenter;
+    }
 }

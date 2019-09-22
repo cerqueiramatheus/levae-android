@@ -46,10 +46,6 @@ public class Demanda implements Serializable {
     @Expose
     private String estadoPagamento;
 
-    @SerializedName("tamanho")
-    @Expose
-    private String tamanho;
-
     @SerializedName("valorSistema")
     @Expose
     private Double valorSistema;
@@ -118,7 +114,7 @@ public class Demanda implements Serializable {
     @Expose
     private Veiculo veiculo;
 
-    @SerializedName("tituloDemanda")
+    @SerializedName("titulo")
     @Expose
     private String tituloDemanda;
 
@@ -184,14 +180,6 @@ public class Demanda implements Serializable {
 
     public void setEstadoPagamento(String estadoPagamento) {
         this.estadoPagamento = estadoPagamento;
-    }
-
-    public String getTamanho() {
-        return tamanho;
-    }
-
-    public void setTamanho(String tamanho) {
-        this.tamanho = tamanho;
     }
 
     public Double getValorSistema() {
@@ -364,7 +352,6 @@ public class Demanda implements Serializable {
                 ", comentario='" + comentario + '\'' +
                 ", estadoDemanda='" + estadoDemanda + '\'' +
                 ", estadoPagamento='" + estadoPagamento + '\'' +
-                ", tamanho='" + tamanho + '\'' +
                 ", valorSistema=" + valorSistema +
                 ", valorCliente=" + valorCliente +
                 ", valorTransportador=" + valorTransportador +
