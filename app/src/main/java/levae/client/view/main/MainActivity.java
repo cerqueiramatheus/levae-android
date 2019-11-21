@@ -27,7 +27,8 @@ public class MainActivity extends BaseActivity implements MainInterface.View {
             = item -> {
         switch (item.getItemId()) {
             case R.id.nav_history:
-                ActivityUtils.replaceFragment(getSupportFragmentManager(), new HistoricoFragment(), R.id.main_layout, false);
+                historicoFragment = new HistoricoFragment();
+                ActivityUtils.replaceFragment(getSupportFragmentManager(), historicoFragment, R.id.main_layout, false);
                 ActionBarUtils.hide(getSupportActionBar());
                 return true;
 
@@ -35,16 +36,12 @@ public class MainActivity extends BaseActivity implements MainInterface.View {
                 getSupportActionBar().setShowHideAnimationEnabled(false);
                 ActionBarUtils.hide(getSupportActionBar());
                 ActivityUtils.replaceFragment(getSupportFragmentManager(), new DemandaApresentacaoFragment(), R.id.main_layout, false);
-                //ActionBarUtils.setTitle(getSupportActionBar(), "adicione objetos");
                 return true;
 
             case R.id.nav_menu:
                 ActivityUtils.replaceFragment(getSupportFragmentManager(), new MenuFragment(), R.id.main_layout, false);
                 ActionBarUtils.setTitle(getSupportActionBar(), "menu");
                 return true;
-
-            case R.id.nav_explore:
-                return false;
         }
         return false;
     };
@@ -68,6 +65,14 @@ public class MainActivity extends BaseActivity implements MainInterface.View {
 
         new MainPresenter(this);
 
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        if (historicoFragment != null) {
+            historicoFragment.update();
+        }
     }
 
     @Override

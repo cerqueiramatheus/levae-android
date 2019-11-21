@@ -5,15 +5,20 @@ package levae.client.core.util;
  */
 public class Constantes {
 
-    public static String ERRO_EMAIL = "e-mail inválido";
-    public static String ERRO_SENHA = "senha inválida";
-    public static String ERRO_NASCIMENTO = "data de nascimento inválida";
-    public static String ERRO_NOME = "nome inválido";
-    public static String ERRO_CELULAR = "celular inválido";
+    public static final String ERRO_EMAIL = "e-mail inválido";
+    public static final String ERRO_SENHA = "senha inválida";
+    public static final String ERRO_NASCIMENTO = "data de nascimento inválida";
+    public static final String ERRO_NOME = "nome inválido";
+    public static final String ERRO_CELULAR = "celular inválido";
 
-    public static String USUARIO_NOT_FOUND = "NOTFOUND";
-    public static String USUARIO_REJEITADO = "REJEITADO";
+    public static final String USUARIO_NOT_FOUND = "NOTFOUND";
+    public static final String USUARIO_REJEITADO = "REJEITADO";
+    public static final String USUARIO_CRIADO = "CRIADO";
 
-    public static String CARTAO_INATIVO = "INATIVO";
-
+    public static final String DEMANDA_CARTAO = "ERROCARTAO";
+    public static final String DEMANDA_CANCELADA = "CANCELADA";
+    public static final String DEMANDA_ACEITA = "ACEITA";
+    public static final String DEMANDA_CRIADA = "CRIADA";
+    public static final String DEMANDA_TRANSPORTE = "TRANSPORTE";
+    public static final String DEMANDA_FINALIZADA = "FINALIZADA";
 }

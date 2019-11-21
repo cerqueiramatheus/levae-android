@@ -2,6 +2,7 @@ package levae.client.view.demandaNova.demandaForm;
 
 import com.google.android.libraries.places.api.model.Place;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import levae.client.core.base.BasePresenter;
@@ -12,7 +13,7 @@ import levae.client.core.base.BaseView;
  */
 public interface DemandaFormInterface {
 
-    public interface View extends BaseView<Presenter> {
+    interface View extends BaseView<Presenter> {
 
         void setEntregaNome(String nome);
 
@@ -56,6 +57,8 @@ public interface DemandaFormInterface {
         boolean validaCampos(String nomeEntrega, String nomeColeta);
 
         void moveToConfirmacao();
+
+        String getPlaceCity(double latitude, double longitude) throws IOException;
     }
 
 }

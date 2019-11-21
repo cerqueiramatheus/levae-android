@@ -46,7 +46,7 @@ public class PagamentoActivity extends BaseActivity implements PagamentoInterfac
 
         mPresenter.subscribe();
 
-        customProgressBar = new CustomProgressBar(this, mLayout, CustomProgressBar.ProgressBarEnum.CIRCULAR);
+        customProgressBar = new CustomProgressBar(this, mLayout, CustomProgressBar.ProgressBarEnum.CIRCULAR, false);
         customProgressBar.show();
     }
 

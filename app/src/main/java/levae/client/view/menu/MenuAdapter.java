@@ -20,7 +20,7 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.CustomViewHold
 
     private OnItemClickListener mListener;
 
-    MenuAdapter(OnItemClickListener listener) {
+    public MenuAdapter(OnItemClickListener listener) {
         this.mListener = listener;
     }
 

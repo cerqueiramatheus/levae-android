@@ -1,7 +1,6 @@
 package levae.client.view.demandaNova.demandaCartao;
 
 
-import android.content.Context;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -63,7 +62,7 @@ public class DemandaCartaoFragment extends BaseFragment implements DemandaCartao
 
         ((DemandaNovaActivity) getActivity()).getSupportActionBar().setTitle("selecione um cartão");
 
-        customProgressBar = new CustomProgressBar(getActivity(), mLayout, CustomProgressBar.ProgressBarEnum.CIRCULAR);
+        customProgressBar = new CustomProgressBar(getActivity(), mLayout, CustomProgressBar.ProgressBarEnum.CIRCULAR, false);
         customProgressBar.show();
 
         return view;

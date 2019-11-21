@@ -2,6 +2,7 @@ package levae.client.core.model.usuarios;
 
 import androidx.annotation.NonNull;
 
+import java.io.Serializable;
 import java.util.List;
 
 import levae.client.core.model.veiculo.Veiculo;
@@ -9,7 +10,7 @@ import levae.client.core.model.veiculo.Veiculo;
 /**
  * Created by txring on 19/06/2018.
  */
-public class Transportador extends Pessoa {
+public class Transportador extends Pessoa implements Serializable {
 
     private int idTransportador;
 

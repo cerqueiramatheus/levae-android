@@ -1,4 +1,4 @@
-package levae.client.core.token;
+package levae.client.core.retrofit;
 
 import androidx.annotation.NonNull;
 
@@ -20,7 +20,8 @@ public class MandaToken implements Interceptor {
         Request requestInicial = chain.request();
         Request.Builder builder = requestInicial.newBuilder();
 
-        if (!UserUtils.getToken().equals("")) {
+        if (UserUtils.getToken() != null && !UserUtils.getToken().equals("")) {
+            System.out.println("token");
             builder.header("Authorization", UserUtils.getToken());
         }
 

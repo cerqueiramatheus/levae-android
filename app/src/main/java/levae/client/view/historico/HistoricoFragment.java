@@ -22,7 +22,6 @@ import levae.client.core.base.BaseFragment;
  */
 public class HistoricoFragment extends BaseFragment implements HistoricoInterface.View {
 
-
     @BindView(R.id.view_pager)
     ViewPager viewPager;
 
@@ -87,6 +86,11 @@ public class HistoricoFragment extends BaseFragment implements HistoricoInterfac
         System.out.println("VIEW PAGER ITEM: " + viewPager.getCurrentItem());
         System.out.println("TAB ITEM: " + tabLayout.getSelectedTabPosition());
         System.out.println("ADAPTER " + adapter.getItemPosition(tabLayout));
-        return viewPager.getCurrentItem();
+        return tabLayout.getSelectedTabPosition();
+    }
+
+    @Override
+    public void update() {
+        adapter.update();
     }
 }

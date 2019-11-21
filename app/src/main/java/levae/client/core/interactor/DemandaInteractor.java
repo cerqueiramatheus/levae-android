@@ -87,11 +87,9 @@ public class DemandaInteractor {
                 .observeOn(AndroidSchedulers.mainThread());
     }
 
-    public Call<ResponseBody> getFoto(int idDemanda, int idObjeto){
-        HashMap<String, Integer> hashMap = new HashMap<>();
-        hashMap.put("idDemanda", idDemanda);
-        hashMap.put("idObjeto", idObjeto);
-
-        return service.getFoto(hashMap);
+    public Single<Demanda> avaliarDemanda(Demanda demanda) {
+        return service.avaliar(demanda)
+                .subscribeOn(Schedulers.computation())
+                .observeOn(AndroidSchedulers.mainThread());
     }
 }

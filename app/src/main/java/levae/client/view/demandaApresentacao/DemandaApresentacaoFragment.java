@@ -2,11 +2,13 @@ package levae.client.view.demandaApresentacao;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.RequiresApi;
 import androidx.viewpager.widget.ViewPager;
 
 import java.util.Objects;
@@ -27,7 +29,10 @@ public class DemandaApresentacaoFragment extends BaseFragment implements Demanda
     ViewPager viewPager;
 
     private DemandaApresentacaoInterface.Presenter mPresenter;
+
     private Timer timer;
+
+    private int index;
 
     public DemandaApresentacaoFragment() {
         // Required empty public constructor
@@ -46,6 +51,7 @@ public class DemandaApresentacaoFragment extends BaseFragment implements Demanda
         DemandaApresentacaoAdapter viewPagerAdapter = new DemandaApresentacaoAdapter(view.getContext());
 
         viewPager.setAdapter(viewPagerAdapter);
+        viewPager.setCurrentItem(0);
 
         new DemandaApresentacaoPresenter(this);
 
@@ -57,6 +63,12 @@ public class DemandaApresentacaoFragment extends BaseFragment implements Demanda
         super.onAttach(context);
         timer = new Timer();
         timer.scheduleAtFixedRate(new SliderTimer(), 4000, 6000);
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    @Override
+    public void onResume() {
+        super.onResume();
     }
 
     @Override
@@ -94,12 +106,16 @@ public class DemandaApresentacaoFragment extends BaseFragment implements Demanda
 
         @Override
         public void run() {
+
             try {
                 DemandaApresentacaoFragment.this.getActivity().runOnUiThread(() -> {
-                    if (viewPager.getCurrentItem() < SliderEnum.values().length - 1) {
-                        viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
+                    if ((index + 1) < SliderEnum.values().length) {
+                        System.out.println("a");
+                        viewPager.setCurrentItem(index);
+                        index++;
                     } else {
-                        viewPager.setCurrentItem(0);
+                        System.out.println("b");
+                        index = 0;
                     }
                 });
             } catch (NullPointerException n) {

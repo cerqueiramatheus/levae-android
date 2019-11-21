@@ -4,7 +4,6 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
-import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.List;
 
@@ -70,13 +69,17 @@ public class Demanda implements Serializable {
     @Expose
     private String dataLimite;
 
+    @SerializedName("dataInicio")
+    @Expose
+    private Timestamp dataInicio;
+
     @SerializedName("dataSolicitacao")
     @Expose
     private Timestamp dataSolicitacao;
 
-    @SerializedName("dataEntrega")
+    @SerializedName("dataTransporte")
     @Expose
-    private Timestamp dataEntrega;
+    private Timestamp dataTransporte;
 
     @SerializedName("localColeta")
     @Expose
@@ -85,6 +88,14 @@ public class Demanda implements Serializable {
     @SerializedName("localEntrega")
     @Expose
     private String localEntrega;
+
+    @SerializedName("cidadeColeta")
+    @Expose
+    private String cidadeColeta;
+
+    @SerializedName("cidadeEntrega")
+    @Expose
+    private String cidadeEntrega;
 
     @SerializedName("latitudeColeta")
     @Expose
@@ -114,7 +125,7 @@ public class Demanda implements Serializable {
     @Expose
     private Veiculo veiculo;
 
-    @SerializedName("titulo")
+    @SerializedName("tituloDemanda")
     @Expose
     private String tituloDemanda;
 
@@ -125,6 +136,54 @@ public class Demanda implements Serializable {
     @SerializedName("tipoVeiculo")
     @Expose
     private TipoVeiculo tipoVeiculo;
+
+    @SerializedName("nomeDe")
+    @Expose
+    private String nomeDe;
+
+    @SerializedName("nomePara")
+    @Expose
+    private String nomePara;
+
+    public Timestamp getDataInicio() {
+        return dataInicio;
+    }
+
+    public void setDataInicio(Timestamp dataInicio) {
+        this.dataInicio = dataInicio;
+    }
+
+    public String getNomeDe() {
+        return nomeDe;
+    }
+
+    public void setNomeDe(String nomeDe) {
+        this.nomeDe = nomeDe;
+    }
+
+    public String getNomePara() {
+        return nomePara;
+    }
+
+    public void setNomePara(String nomePara) {
+        this.nomePara = nomePara;
+    }
+
+    public String getCidadeColeta() {
+        return cidadeColeta;
+    }
+
+    public void setCidadeColeta(String cidadeColeta) {
+        this.cidadeColeta = cidadeColeta;
+    }
+
+    public String getCidadeEntrega() {
+        return cidadeEntrega;
+    }
+
+    public void setCidadeEntrega(String cidadeEntrega) {
+        this.cidadeEntrega = cidadeEntrega;
+    }
 
     public Double getDistancia() {
         return distancia;
@@ -238,12 +297,12 @@ public class Demanda implements Serializable {
         this.dataSolicitacao = dataSolicitacao;
     }
 
-    public Timestamp getDataEntrega() {
-        return dataEntrega;
+    public Timestamp getDataTransporte() {
+        return dataTransporte;
     }
 
-    public void setDataEntrega(Timestamp dataEntrega) {
-        this.dataEntrega = dataEntrega;
+    public void setDataTransporte(Timestamp dataTransporte) {
+        this.dataTransporte = dataTransporte;
     }
 
     public String getLocalColeta() {
@@ -359,7 +418,7 @@ public class Demanda implements Serializable {
                 ", dataColeta=" + dataColeta +
                 ", dataLimite=" + dataLimite +
                 ", dataSolicitacao=" + dataSolicitacao +
-                ", dataEntrega=" + dataEntrega +
+                ", dataTransporte=" + dataTransporte +
                 ", localColeta='" + localColeta + '\'' +
                 ", localEntrega='" + localEntrega + '\'' +
                 ", latitudeColeta=" + latitudeColeta +

@@ -1,12 +1,10 @@
 package levae.client.core.dao;
 
-import java.io.File;
 import java.util.HashMap;
 import java.util.List;
 
 import io.reactivex.Single;
 import levae.client.core.model.demanda.Demanda;
-import levae.client.core.retrofit.Erro;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
@@ -20,11 +18,14 @@ public interface DemandaService {
 
     @Multipart
     @POST("demanda/solicitacao/inserir")
-    Single<Demanda> inserir(@Part ("demanda") RequestBody demanda,
+    Single<Demanda> inserir(@Part("demanda") RequestBody demanda,
                             @Part List<MultipartBody.Part> listaFoto);
 
     @POST("demanda/solicitacao/cancelar")
     Single<Demanda> cancelar(@Body Demanda demanda);
+
+    @POST("demanda/solicitacao/avaliar")
+    Single<Demanda> avaliar(@Body Demanda demanda);
 
     @POST("demanda/solicitacao/getinfos")
     Single<Demanda> getValor(@Body Demanda demanda);

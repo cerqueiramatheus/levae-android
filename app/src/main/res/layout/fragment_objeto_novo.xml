@@ -9,23 +9,39 @@
     android:paddingTop="16dp"
     android:paddingRight="8dp">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/objeto_novo_til_titulo"
-        style="@style/TextInputLayout.OutlinedBox.White"
+    <ImageView
+        android:id="@+id/objeto_novo_img"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_below="@id/objeto_novo_til_valor"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:visibility="invisible" />
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/objeto_novo_btn_adicionar"
+        style="@style/Button.OutlinedButton.Background"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:errorEnabled="true">
+        android:layout_below="@id/objeto_novo_btn_camera"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:text="adicionar" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/objeto_novo_et_titulo"
-            style="@style/TextInputEditText"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:hint="título do objeto"
-            android:inputType="text"
-            android:maxLength="10" />
-    </com.google.android.material.textfield.TextInputLayout>
-
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/objeto_novo_btn_camera"
+        style="@style/Button.TextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/objeto_novo_til_valor"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:text="tirar uma foto do objeto!"
+        android:textColor="@color/textColorSecondary"
+        app:icon="@drawable/ic_camera"
+        app:iconTint="@color/textColorSecondary" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/objeto_novo_til_valor"
@@ -46,37 +62,21 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/objeto_novo_btn_adicionar"
-        style="@style/Button.OutlinedButton.Background"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/objeto_novo_til_titulo"
+        style="@style/TextInputLayout.OutlinedBox.White"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/objeto_novo_btn_camera"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
-        android:text="adicionar" />
+        app:errorEnabled="true">
 
-    <ImageView
-        android:id="@+id/objeto_novo_img"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:layout_below="@id/objeto_novo_til_valor"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
-        android:visibility="invisible" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/objeto_novo_btn_camera"
-        style="@style/Button.TextButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/objeto_novo_til_valor"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
-        android:text="tirar uma foto do objeto!"
-        android:textColor="@color/textColorSecondary"
-        app:icon="@drawable/ic_camera"
-        app:iconTint="@color/textColorSecondary" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/objeto_novo_et_titulo"
+            style="@style/TextInputEditText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="título do objeto"
+            android:inputType="text"
+            android:maxLength="10" />
+    </com.google.android.material.textfield.TextInputLayout>
 
 </RelativeLayout>

@@ -7,11 +7,58 @@
     android:background="@color/textColorPrimary"
     tools:context=".view.demandaDetalhe.DemandaDetalheActivity">
 
+    <TextView
+        android:id="@+id/demanda_detalhe_text_detalhe"
+        style="@style/CommonTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/demanda_detalhe_objeto_fotos"
+        android:layout_marginTop="4dp"
+        android:text="detalhes"
+        android:textAlignment="center" />
+
+    <TextView
+        android:id="@+id/demanda_detalhe_text_entrega"
+        style="@style/CommonTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/demanda_detalhe_card_localizacao"
+        android:layout_marginTop="4dp"
+        android:text="entrega"
+        android:textAlignment="center"
+        android:visibility="invisible" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/demanda_detalhe_card_localizacao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/demanda_detalhe_card_data"
+        android:layout_marginHorizontal="4dp"
+        android:layout_marginVertical="2dp"
+        app:cardCornerRadius="4dp"
+        app:contentPadding="4dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/demanda_detalhe_localizacao"
+                style="@style/CommonTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:text="aaaaaaaaaaaa"
+                android:textAlignment="center" />
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
     <androidx.cardview.widget.CardView
         android:id="@+id/demanda_detalhe_card_objetos"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/demanda_detalhe_objeto_fotos"
+        android:layout_below="@id/demanda_detalhe_text_detalhe"
         android:layout_marginHorizontal="4dp"
         android:layout_marginVertical="2dp"
         app:cardCornerRadius="4dp"
@@ -54,12 +101,13 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/demanda_detalhe_card_localizacao"
+        android:id="@+id/demanda_detalhe_card_motorista"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/demanda_detalhe_card_data"
+        android:layout_below="@id/demanda_detalhe_text_entrega"
         android:layout_marginHorizontal="4dp"
         android:layout_marginVertical="2dp"
+        android:visibility="invisible"
         app:cardCornerRadius="4dp"
         app:contentPadding="4dp">
 
@@ -67,18 +115,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <Button
-                android:id="@+id/demanda_detalhe_btn_localizacao"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/demanda_detalhe_localizacao"
-                android:layout_centerHorizontal="true"
-                android:fontFamily="@font/title_regular"
-                android:text="ver no Google Maps"
-                android:textSize="12sp" />
-
             <TextView
-                android:id="@+id/demanda_detalhe_localizacao"
+                android:id="@+id/demanda_detalhe_motorista_nome"
                 style="@style/CommonTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -86,6 +124,50 @@
                 android:text="aaaaaaaaaaaa"
                 android:textAlignment="center" />
 
+            <TextView
+                android:id="@+id/demanda_detalhe_motorista_carro"
+                style="@style/CommonTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/demanda_detalhe_motorista_nome"
+                android:layout_alignParentTop="true"
+                android:text="aaaaaaaaaaaa"
+                android:textAlignment="center" />
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/demanda_detalhe_card_estado"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/demanda_detalhe_card_motorista"
+        android:layout_marginHorizontal="4dp"
+        android:layout_marginVertical="2dp"
+        android:visibility="invisible"
+        app:cardCornerRadius="4dp"
+        app:contentPadding="4dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/demanda_detalhe_estado_coleta"
+                style="@style/CommonTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:text="aaaaaaaaaaaa"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/demanda_detalhe_estado_entrega"
+                style="@style/CommonTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/demanda_detalhe_estado_coleta"
+                android:text="aaaaaaaaaaaa"
+                android:textAlignment="center" />
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
 
@@ -97,6 +179,15 @@
         android:layout_marginHorizontal="4dp"
         android:layout_marginVertical="2dp"
         android:layout_marginTop="4dp"
-        android:orientation="vertical"
-        />
+        android:orientation="vertical" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/demanda_detalhe_btn_cancelar"
+        style="@style/Button.OutlinedButton.Background"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="cancelar"
+        android:visibility="visible" />
 </RelativeLayout>

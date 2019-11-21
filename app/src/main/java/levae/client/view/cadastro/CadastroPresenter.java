@@ -43,10 +43,11 @@ public class CadastroPresenter implements CadastroInterface.Presenter {
     }
 
     @Override
-    public void moveToLoginSenha(String nome, String celular, String nascimento) {
+    public void moveToLoginSenha(String nome, String celular, String nascimento, String cpf) {
         cliente.setNome(nome);
         cliente.setCelular(Long.parseLong(celular));
-        cliente.setNascimento(EditTextUtils.getDate(nascimento));
+        cliente.setCpf(Long.parseLong(cpf));
+        cliente.setNascimento(EditTextUtils.getStringToDate(nascimento));
         mView.goToLoginSenha();
     }
 

@@ -7,7 +7,7 @@ public class MainPresenter implements MainInterface.Presenter {
 
     private MainInterface.View mView;
 
-    MainPresenter(MainInterface.View view){
+    MainPresenter(MainInterface.View view) {
         this.mView = view;
         mView.setPresenter(this);
     }

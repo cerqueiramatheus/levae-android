@@ -1,5 +1,8 @@
 package levae.client.view.splash;
 
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.maps.model.LatLng;
+
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.observers.DisposableSingleObserver;
 import levae.client.core.interactor.ClienteInteractor;
@@ -16,30 +19,34 @@ public class SplashPresenter implements SplashInterface.Presenter {
     private ClienteInteractor mInteractor;
     private CompositeDisposable mCompositeDisposable;
 
-    SplashPresenter(SplashInterface.View view) {
+    SplashPresenter(SplashInterface.View view, FusedLocationProviderClient fusedLocationProviderClient) {
         view.setPresenter(this);
         mInteractor = new ClienteInteractor();
         mCompositeDisposable = new CompositeDisposable();
         this.mView = view;
+
+        try {
+            fusedLocationProviderClient.getLastLocation().addOnSuccessListener(location -> UserUtils.setmLatLng(new LatLng(location.getLatitude(), location.getLongitude())));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        mView.setPresenter(this);
     }
 
     @Override
     public void moveTo() {
-        System.out.println("o que é? " +UserUtils.getToken().equals(""));
         if (UserUtils.getToken() == null) {
             mView.moveToApresentacao();
-            System.out.println("é nulo mermo");
         } else {
             mCompositeDisposable.add(mInteractor.getInfos().subscribeWith(new DisposableSingleObserver<Cliente>() {
                 @Override
                 public void onSuccess(Cliente cliente) {
                     if (!cliente.getSituacao().equals(Constantes.USUARIO_NOT_FOUND)) {
                         UserUtils.setCliente(cliente);
-                        System.out.println("foi");
                         mView.moveToMain();
                     } else {
                         UserUtils.logout();
-                        System.out.println("rodou aqui");
                         mView.moveToApresentacao();
                     }
                 }

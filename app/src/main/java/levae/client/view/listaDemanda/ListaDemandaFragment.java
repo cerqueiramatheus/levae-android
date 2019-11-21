@@ -11,12 +11,11 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.sql.SQLOutput;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import levae.client.R;
 import levae.client.core.base.BaseFragment;
+import levae.client.core.util.CustomProgressBar;
 import levae.client.view.demandaDetalhe.DemandaDetalheActivity;
 import levae.client.view.historico.HistoricoInterface;
 
@@ -31,9 +30,14 @@ public class ListaDemandaFragment extends BaseFragment implements ListaDemandaIn
     @BindView(R.id.lista_demanda_null_list)
     RelativeLayout listaDemandaNullList;
 
+    @BindView(R.id.lista_demanda_layout)
+    RelativeLayout listaDemandaLayout;
+
     private ListaDemandaInterface.Presenter mPresenter;
 
     private ListaDemandaAdapter listaDemandaAdapter;
+
+    private CustomProgressBar customProgressBar;
 
     public ListaDemandaFragment() {
         // Required empty public constructor
@@ -44,14 +48,22 @@ public class ListaDemandaFragment extends BaseFragment implements ListaDemandaIn
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_lista_demanda, container, false);
-        new ListaDemandaPresenter(this, (HistoricoInterface.View) getParentFragment());
         ButterKnife.bind(this, view);
+
+        if (customProgressBar == null) {
+            customProgressBar = new CustomProgressBar(getActivity(), listaDemandaLayout, CustomProgressBar.ProgressBarEnum.CIRCULAR, true);
+            customProgressBar.setTouchable();
+        } else {
+            customProgressBar.hide();
+        }
+
         return view;
     }
 
     @Override
     public void onResume() {
         super.onResume();
+        new ListaDemandaPresenter(this, (HistoricoInterface.View) getParentFragment());
         mPresenter.subscribe();
     }
 
@@ -62,6 +74,7 @@ public class ListaDemandaFragment extends BaseFragment implements ListaDemandaIn
 
     @Override
     public void setAdapter(ListaDemandaAdapter adapter) {
+        hideProgress();
         listaDemandaNullList.setVisibility(View.INVISIBLE);
         listaDemandaList.setVisibility(View.VISIBLE);
         this.listaDemandaAdapter = adapter;
@@ -73,11 +86,18 @@ public class ListaDemandaFragment extends BaseFragment implements ListaDemandaIn
 
     @Override
     public void updateList(int count) {
+        hideProgress();
         listaDemandaAdapter.notifyItemChanged(count - 1);
     }
 
     @Override
+    public void updateView() {
+        //mPresenter.subscribe();
+    }
+
+    @Override
     public void setNullList(String txt) {
+        hideProgress();
         listaDemandaNullList.setVisibility(View.VISIBLE);
         listaDemandaList.setVisibility(View.INVISIBLE);
         listaDemandaText.setText(txt);
@@ -89,10 +109,20 @@ public class ListaDemandaFragment extends BaseFragment implements ListaDemandaIn
     }
 
     @Override
+    public void hideProgress() {
+        customProgressBar.hide();
+    }
+
+    @Override
+    public void showProgress() {
+        customProgressBar.show();
+    }
+
+    @Override
     public void onItemClick(View view, int position) {
         Intent intent = new Intent(getActivity(), DemandaDetalheActivity.class);
         mPresenter.prepareDemandaDetalhe(intent, position);
-     }
+    }
 
     public enum TipoLista {
 

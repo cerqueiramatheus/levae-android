@@ -8,6 +8,7 @@ import levae.client.core.enums.CreditCardEnum;
 import levae.client.core.interactor.DemandaInteractor;
 import levae.client.core.model.demanda.Demanda;
 import levae.client.core.model.demanda.Objeto;
+import levae.client.core.util.EditTextUtils;
 import levae.client.view.demandaNova.DemandaNovaInterface;
 
 /**
@@ -23,14 +24,11 @@ public class DemandaConfirmPresenter implements DemandaConfirmInterface.Presente
 
     private DemandaInteractor demandaInteractor;
 
-    private Context context;
-
     DemandaConfirmPresenter(DemandaConfirmInterface.View view, DemandaNovaInterface.View root, Context c) {
         mRoot = root;
         mCompositeDisposable = new CompositeDisposable();
         demandaInteractor = new DemandaInteractor();
         mView = view;
-        context = c;
         mView.setPresenter(this);
     }
 
@@ -41,8 +39,8 @@ public class DemandaConfirmPresenter implements DemandaConfirmInterface.Presente
         mView.setColetaLocal(mRoot.getDemanda().getLocalColeta());
         mView.setEntregaLocal(mRoot.getDemanda().getLocalEntrega());
 
-        mView.setColetaData(mRoot.getDemanda().getDataColeta());
-        mView.setEntregaData(mRoot.getDemanda().getDataLimite());
+        mView.setColetaData(EditTextUtils.beautifyDate(mRoot.getDemanda().getDataColeta()));
+        mView.setEntregaData(EditTextUtils.beautifyDate(mRoot.getDemanda().getDataLimite()));
 
         String a = null;
 

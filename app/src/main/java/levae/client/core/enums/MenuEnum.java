@@ -9,7 +9,8 @@ public enum MenuEnum {
 
     CARD(R.drawable.ic_round_payment_24px, R.string.menu_card_title, R.string.menu_card_text),
     SHARE(R.drawable.ic_round_people_24px, R.string.menu_share_title, R.string.menus_share_text),
-    INFO(R.drawable.ic_round_info_24px, R.string.menu_about_title, R.string.menu_about_text);
+    INFO(R.drawable.ic_round_info_24px, R.string.menu_about_title, R.string.menu_about_text),
+    LOGOUT(R.drawable.ic_logout, R.string.menu_logout_title, R.string.menu_logout_text);
 
     private final int imagem, titulo, descricao;
 

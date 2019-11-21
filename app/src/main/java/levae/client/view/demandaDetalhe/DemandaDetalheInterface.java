@@ -18,10 +18,36 @@ public interface DemandaDetalheInterface {
         void setObjetos(String objetos);
 
         void setData(String data);
+
+        void setTransportador(String transportador, String veiculo);
+
+        void setDataColeta(String dataColeta);
+
+        void setDataEntrega(String dataEntrega);
+
+        void setCancelar();
+
+        void setAvaliar();
+
+        void onSuccess();
+
+        void onCancelar();
+
+        void onAvaliar();
+
+        void hideButton();
+
+        void hideEntrega();
+
     }
 
     interface Presenter extends BasePresenter {
         void prepareTitle();
-    }
 
+        void onClick();
+
+        void cancelar();
+
+        void avaliar(int rating, String comment);
+    }
 }

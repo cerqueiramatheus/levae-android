@@ -108,7 +108,7 @@ public class DemandaFormFragment extends BaseFragment implements DemandaFormInte
         new DateInputMask(etColetaData);
         new DateInputMask(etEntregaData);
 
-        new DemandaFormPresenter(this, (DemandaNovaActivity) getActivity());
+        new DemandaFormPresenter(this, (DemandaNovaActivity) getActivity(), getActivity());
         mPresenter.subscribe();
 
         ((DemandaNovaActivity) getActivity()).getSupportActionBar().setTitle("formulário");

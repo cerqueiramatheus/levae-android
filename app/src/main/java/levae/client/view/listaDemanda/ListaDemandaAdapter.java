@@ -73,7 +73,16 @@ public class ListaDemandaAdapter extends RecyclerView.Adapter<ListaDemandaAdapte
     @Override
     public void onBindViewHolder(@NonNull CustomViewHolder holder, int position) {
         holder.titulo.setText(listaDemanda.get(position).getTituloDemanda());
-        String local = listaDemanda.get(position).getLocalColeta() + " para " + listaDemanda.get(position).getLocalEntrega();
+
+        String local;
+
+        if (listaDemanda.get(position).getCidadeEntrega().equals(listaDemanda.get(position).getCidadeColeta())) {
+            local = listaDemanda.get(position).getLocalColeta() + " para " + listaDemanda.get(position).getLocalEntrega();
+
+        } else {
+            local = listaDemanda.get(position).getCidadeColeta() + " para " + listaDemanda.get(position).getCidadeEntrega();
+        }
+
         holder.localizacao.setText(local);
 
         SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");

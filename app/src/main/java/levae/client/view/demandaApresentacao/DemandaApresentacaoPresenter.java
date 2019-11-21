@@ -22,7 +22,7 @@ public class DemandaApresentacaoPresenter implements DemandaApresentacaoInterfac
     private TipoVeiculoInteractor tipoVeiculoInteractor;
     private CompositeDisposable compositeDisposable;
 
-    public DemandaApresentacaoPresenter(DemandaApresentacaoInterface.View view) {
+    DemandaApresentacaoPresenter(DemandaApresentacaoInterface.View view) {
         mView = view;
         mView.setPresenter(this);
         tipoVeiculoInteractor = new TipoVeiculoInteractor();
@@ -64,6 +64,8 @@ public class DemandaApresentacaoPresenter implements DemandaApresentacaoInterfac
                             mView.onError("algum erro ocorreu");
                         }
                     }));
+                } else {
+                    mView.onError("cadastre um cartão antes");
                 }
 
             }

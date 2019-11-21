@@ -1,5 +1,6 @@
 package levae.client.core.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import io.reactivex.Single;
@@ -14,28 +15,24 @@ import retrofit2.http.POST;
 
 public interface ClienteService {
 
-    @POST("cliente/senha")
-    Call<Erro> alterarSenha(@Body Cliente cliente);
-
     @POST("cliente/login")
     Call<Cliente> login(@Body Cliente cliente);
 
     @POST("cliente/getinfos")
     Single<Cliente> getInfos();
 
-    @POST("cliente/token")
-    Single<String> token(@Body Cliente cliente);
-
     @POST("cliente/inserir")
     Call<Cliente> cadastrar(@Body Cliente cliente);
 
-    @POST("cliente/alterar")
-    Call<Erro> alterar(@Body Cliente cliente);
+    @POST("cliente/setinfos")
+    Single<Boolean> setInfos(@Body Cliente cliente);
 
-    @POST("cliente/excluir")
-    Call<Erro> excluir(@Body Cliente cliente);
+    @POST("cliente/alterarsenha")
+    Single<Cliente> alterarSenha(@Body HashMap<String, Object> hashMap);
 
-    @POST("cliente/getlistacartao")
-    Single<List<Cartao>> getListaCartao();
+    @POST("cliente/alteraremail")
+    Single<Cliente> alterarEmail(@Body HashMap<String, Object> hashMap);
 
+    @POST("cliente/alterarcelular")
+    Single<Cliente> alterarCelular(@Body HashMap<String, Object> hashMap);
 }

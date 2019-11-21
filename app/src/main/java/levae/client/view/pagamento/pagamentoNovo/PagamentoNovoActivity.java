@@ -80,7 +80,7 @@ public class PagamentoNovoActivity extends BaseActivity implements PagamentoNovo
         etValidade.addTextChangedListener(new CreditCardExpireMask());
         etNumero.addTextChangedListener(new CreditCardWatcher());
 
-        customProgressBar = new CustomProgressBar(this, mLayout, CustomProgressBar.ProgressBarEnum.HORIZONTAL);
+        customProgressBar = new CustomProgressBar(this, mLayout, CustomProgressBar.ProgressBarEnum.HORIZONTAL, false);
 
     }
 

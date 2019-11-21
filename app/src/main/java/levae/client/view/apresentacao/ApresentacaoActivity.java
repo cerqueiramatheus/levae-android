@@ -3,6 +3,7 @@ package levae.client.view.apresentacao;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.RelativeLayout;
 
 import androidx.core.app.ActivityOptionsCompat;
 
@@ -13,7 +14,6 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import levae.client.R;
 import levae.client.core.base.BaseActivity;
-import levae.client.core.util.UserUtils;
 import levae.client.view.cadastro.CadastroActivity;
 import levae.client.view.login.LoginActivity;
 
@@ -28,14 +28,16 @@ public class ApresentacaoActivity extends BaseActivity implements ApresentacaoIn
     @BindView(R.id.entrada_btn_mais)
     MaterialButton btnMais;
 
+    @BindView(R.id.layout_apresentacao)
+    RelativeLayout layoutApresentacao;
+
     private ApresentacaoInterface.Presenter mPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_apresentacao);
-        showMessage("token: "+ UserUtils.getToken());
-
+        ButterKnife.bind(this);
     }
 
     @Override
@@ -43,6 +45,7 @@ public class ApresentacaoActivity extends BaseActivity implements ApresentacaoIn
         super.onResume();
         ButterKnife.bind(this);
         new ApresentacaoPresenter(this);
+
     }
 
     @OnClick(R.id.entrada_btn_entrar)
@@ -57,19 +60,25 @@ public class ApresentacaoActivity extends BaseActivity implements ApresentacaoIn
 
     @Override
     public void toLogin() {
-        System.out.println("clicou");
-        Intent intent = new Intent(ApresentacaoActivity.this, LoginActivity.class);
-        ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(this);
-        startActivity(intent, options.toBundle());
+        if (checkConnection()) {
+            Intent intent = new Intent(ApresentacaoActivity.this, LoginActivity.class);
+            ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(this);
+            startActivity(intent, options.toBundle());
+        } else {
+            showSnack("sem conexão com a Internet");
+        }
     }
 
     @Override
     public void toCadastro() {
-        System.out.println("clicou");
-        Intent intent = new Intent(ApresentacaoActivity.this, CadastroActivity.class);
-        ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(this);
-        getWindow().setExitTransition(null);
-        startActivity(intent, options.toBundle());
+        if (checkConnection()) {
+            Intent intent = new Intent(ApresentacaoActivity.this, CadastroActivity.class);
+            ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(this);
+            getWindow().setExitTransition(null);
+            startActivity(intent, options.toBundle());
+        } else {
+            showSnack("sem conexão com a Internet");
+        }
     }
 
     @Override

@@ -34,13 +34,14 @@ public class ListaDemandaPresenter implements ListaDemandaInterface.Presenter {
 
     @Override
     public void subscribe() {
+        mView.showProgress();
         switch (ListaDemandaFragment.TipoLista.values()[mRoot.getPosition()]) {
             case ABERTA:
                 if (listaAberta == null) {
                     mCompositeDisposable.add(demandaInteractor.getListaAberta(0).subscribeWith(new DisposableSingleObserver<List<Demanda>>() {
                         @Override
                         public void onSuccess(List<Demanda> demandas) {
-                            if (demandas.size() != 0) {
+                            if (demandas != null && demandas.size() > 0) {
                                 listaAberta = demandas;
                                 mView.setAdapter(new ListaDemandaAdapter(listaAberta, mView));
                             } else {
@@ -53,6 +54,8 @@ public class ListaDemandaPresenter implements ListaDemandaInterface.Presenter {
                             mView.setNullList("não há demanda aberta");
                         }
                     }));
+                } else {
+                    mView.hideProgress();
                 }
                 break;
 
@@ -62,7 +65,7 @@ public class ListaDemandaPresenter implements ListaDemandaInterface.Presenter {
                         @Override
                         public void onSuccess(List<Demanda> demandas) {
                             listaFinalizada = demandas;
-                            if (demandas.size() != 0) {
+                            if (demandas != null && demandas.size() > 0) {
                                 mView.setAdapter(new ListaDemandaAdapter(listaFinalizada, mView));
                             } else {
                                 mView.setNullList("não há demanda finalizada");
@@ -74,6 +77,8 @@ public class ListaDemandaPresenter implements ListaDemandaInterface.Presenter {
                             mView.setNullList("não há demanda finalizada");
                         }
                     }));
+                } else {
+                    mView.hideProgress();
                 }
                 break;
 
@@ -82,8 +87,8 @@ public class ListaDemandaPresenter implements ListaDemandaInterface.Presenter {
                     mCompositeDisposable.add(demandaInteractor.getListaTransporte(0).subscribeWith(new DisposableSingleObserver<List<Demanda>>() {
                         @Override
                         public void onSuccess(List<Demanda> demandas) {
-                            if (demandas.size() != 0) {
-                                listaTransporte = demandas;
+                            listaTransporte = demandas;
+                            if (demandas != null && demandas.size() > 0) {
                                 mView.setAdapter(new ListaDemandaAdapter(listaTransporte, mView));
                             } else {
                                 mView.setNullList("não há demanda em transporte");
@@ -93,9 +98,16 @@ public class ListaDemandaPresenter implements ListaDemandaInterface.Presenter {
                         @Override
                         public void onError(Throwable e) {
                             mView.setNullList("não há demanda em transporte");
+                            e.printStackTrace();
                         }
                     }));
+                } else {
+                    mView.hideProgress();
                 }
+                break;
+
+            default:
+                mView.hideProgress();
                 break;
         }
     }
@@ -113,55 +125,74 @@ public class ListaDemandaPresenter implements ListaDemandaInterface.Presenter {
                     mCompositeDisposable.add(demandaInteractor.getListaAberta(listaAberta.get(listaAberta.size() - 1).getIdDemanda()).subscribeWith(new DisposableSingleObserver<List<Demanda>>() {
                         @Override
                         public void onSuccess(List<Demanda> demandas) {
-                            if (demandas.size() != 0) {
+                            if (demandas != null && demandas.size() > 0) {
                                 listaAberta.addAll(demandas);
                                 mView.updateList(listaAberta.size());
+                            } else {
+                                mView.hideProgress();
                             }
                         }
 
                         @Override
                         public void onError(Throwable e) {
+                            mView.hideProgress();
                         }
                     }));
+                } else {
+                    mView.hideProgress();
                 }
                 break;
 
             case FINALIZADA:
                 if (listaFinalizada != null) {
-                    mView.setAdapter(new ListaDemandaAdapter(null, mView));
-                    mCompositeDisposable.add(demandaInteractor.getListaFinalizada(listaFinalizada.get(listaFinalizada.size()).getIdDemanda()).subscribeWith(new DisposableSingleObserver<List<Demanda>>() {
+                    mCompositeDisposable.add(demandaInteractor.getListaFinalizada(listaFinalizada.get(listaFinalizada.size() - 1).getIdDemanda()).subscribeWith(new DisposableSingleObserver<List<Demanda>>() {
                         @Override
                         public void onSuccess(List<Demanda> demandas) {
-                            if (demandas.size() != 0) {
-                                listaFinalizada = demandas;
-                                mView.setAdapter(new ListaDemandaAdapter(demandas, mView));
+                            if (demandas != null && demandas.size() > 0) {
+                                listaFinalizada.addAll(demandas);
+                                mView.updateList(listaFinalizada.size());
+                            } else {
+                                mView.hideProgress();
                             }
                         }
 
                         @Override
                         public void onError(Throwable e) {
+                            mView.hideProgress();
                         }
                     }));
+                } else {
+                    mView.hideProgress();
                 }
                 break;
 
             case TRANSPORTE:
                 if (listaTransporte != null) {
-                    mView.setAdapter(new ListaDemandaAdapter(null, mView));
-                    mCompositeDisposable.add(demandaInteractor.getListaTransporte(listaTransporte.get(listaTransporte.size()).getIdDemanda()).subscribeWith(new DisposableSingleObserver<List<Demanda>>() {
+                    mCompositeDisposable.add(demandaInteractor.getListaTransporte(listaTransporte.get(listaTransporte.size() - 1).getIdDemanda()).subscribeWith(new DisposableSingleObserver<List<Demanda>>() {
                         @Override
                         public void onSuccess(List<Demanda> demandas) {
-                            if (demandas.size() != 0) {
-                                listaTransporte = demandas;
-                                mView.setAdapter(new ListaDemandaAdapter(demandas, mView));
+                            System.out.println((demandas == null) + " nula? ");
+                            if (demandas != null && demandas.size() > 0) {
+                                listaTransporte.addAll(demandas);
+                                mView.updateList(listaTransporte.size());
+                            } else {
+                                System.out.println("aqui");
+                                mView.hideProgress();
                             }
                         }
 
                         @Override
                         public void onError(Throwable e) {
+                            mView.hideProgress();
                         }
                     }));
+                } else {
+                    mView.hideProgress();
                 }
+                break;
+
+            default:
+                mView.hideProgress();
                 break;
         }
     }

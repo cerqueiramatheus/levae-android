@@ -10,6 +10,8 @@ public interface HistoricoInterface {
 
     interface View extends BaseView<Presenter> {
         int getPosition();
+
+        void update();
     }
 
     interface Presenter extends BasePresenter {

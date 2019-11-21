@@ -16,9 +16,15 @@ public interface ListaDemandaInterface {
 
         void updateList(int count);
 
+        void updateView();
+
         void setNullList(String txt);
 
         void startDemandaDetalhe(Intent it);
+
+        void hideProgress();
+
+        void showProgress();
     }
 
     interface Presenter extends BasePresenter {

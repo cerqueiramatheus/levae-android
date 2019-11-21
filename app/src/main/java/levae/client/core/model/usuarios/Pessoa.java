@@ -44,6 +44,42 @@ public class Pessoa {
     @Expose
     private String situacao;
 
+    @SerializedName("latitudeAtual")
+    @Expose
+    private double latitudeAtual;
+
+    @SerializedName("longitudeAtual")
+    @Expose
+    private double longitudeAtual;
+
+    @SerializedName("firebaseToken")
+    @Expose
+    private String firebaseToken;
+
+    public String getFirebaseToken() {
+        return firebaseToken;
+    }
+
+    public void setFirebaseToken(String firebaseToken) {
+        this.firebaseToken = firebaseToken;
+    }
+
+    public double getLatitudeAtual() {
+        return latitudeAtual;
+    }
+
+    public void setLatitudeAtual(double latitudeAtual) {
+        this.latitudeAtual = latitudeAtual;
+    }
+
+    public double getLongitudeAtual() {
+        return longitudeAtual;
+    }
+
+    public void setLongitudeAtual(double longitudeAtual) {
+        this.longitudeAtual = longitudeAtual;
+    }
+
     public Date getNascimento() {
         return nascimento;
     }

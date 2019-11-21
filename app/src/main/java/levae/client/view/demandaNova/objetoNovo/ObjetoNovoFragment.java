@@ -136,7 +136,6 @@ public class ObjetoNovoFragment extends BaseFragment implements ObjetoNovoInterf
         params.addRule(RelativeLayout.BELOW, R.id.objeto_novo_img);
         params.addRule(RelativeLayout.CENTER_HORIZONTAL);
 
-
         btnAdicionar.setLayoutParams(params);
         btnFoto.setVisibility(View.INVISIBLE);
         imgObjeto.setVisibility(View.VISIBLE);

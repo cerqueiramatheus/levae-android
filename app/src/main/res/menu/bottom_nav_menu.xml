@@ -12,11 +12,6 @@
         android:title="mandar" />
 
     <item
-        android:id="@+id/nav_explore"
-        android:icon="@drawable/ic_explore"
-        android:title="explorar" />
-
-    <item
         android:id="@+id/nav_menu"
         android:icon="@drawable/ic_round_menu_24px"
         android:title="menu" />

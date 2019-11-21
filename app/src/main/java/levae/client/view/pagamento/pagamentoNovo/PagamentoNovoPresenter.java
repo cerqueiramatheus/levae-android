@@ -15,7 +15,6 @@ import io.reactivex.observers.DisposableSingleObserver;
 import levae.client.core.interactor.CartaoInteractor;
 import levae.client.core.model.pagamento.Cartao;
 import levae.client.core.pagarme.CreditCard;
-import levae.client.core.util.Constantes;
 import levae.client.core.util.UserUtils;
 
 /**
@@ -157,7 +156,7 @@ public class PagamentoNovoPresenter implements PagamentoNovoInterface.Presenter 
         mCompositeDisposable.add(new CartaoInteractor().inativar(cartao).subscribeWith(new DisposableSingleObserver<Cartao>() {
             @Override
             public void onSuccess(Cartao cartao) {
-                if (cartao.getEstado().equals(Constantes.CARTAO_INATIVO)) {
+                if (cartao.getEstado().equals("EXCLUIDO")) {
                     mView.onFinished();
                 } else {
                     mView.setError(cartao.getEstado());

@@ -42,6 +42,12 @@ public class CadastroDadosPessoaisFragment extends BaseFragment implements Cadas
     @BindView(R.id.cadastro_til_celular)
     TextInputLayout tilCelular;
 
+    @BindView(R.id.cadastro_et_cpf)
+    TextInputEditText cadastroEtCpf;
+
+    @BindView(R.id.cadastro_til_cpf)
+    TextInputLayout cadastroTilCpf;
+
     private CadastroInterface.View mView;
 
     private CadastroDadosPessoaisInterface.Presenter mPresenter;
@@ -68,16 +74,18 @@ public class CadastroDadosPessoaisFragment extends BaseFragment implements Cadas
         mPresenter.verificaDadosPessoais(
                 EditTextUtils.getString(etNome),
                 EditTextUtils.getString(etCelular),
-                EditTextUtils.getString(etNascimento)
+                EditTextUtils.getString(etNascimento),
+                EditTextUtils.getString(cadastroEtCpf)
         );
     }
 
     @Override
-    public void onContinuar(String nome, String celular, String nascimento) {
+    public void onContinuar(String nome, String celular, String nascimento, String cpf) {
         tilNome.setError("");
         tilCelular.setError("");
         tilNascimento.setError("");
-        mView.setDadosPessoais(nome, celular, nascimento);
+        cadastroTilCpf.setError("");
+        mView.setDadosPessoais(nome, celular, nascimento, cpf);
     }
 
     @Override
@@ -93,6 +101,11 @@ public class CadastroDadosPessoaisFragment extends BaseFragment implements Cadas
     @Override
     public void onNascimentoErro(String msg) {
         tilNascimento.setError(msg);
+    }
+
+    @Override
+    public void onCPFErro(String msg) {
+        cadastroTilCpf.setError(msg);
     }
 
     @Override

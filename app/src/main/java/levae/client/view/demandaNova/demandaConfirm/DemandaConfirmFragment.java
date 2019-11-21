@@ -156,7 +156,7 @@ public class DemandaConfirmFragment extends BaseFragment implements DemandaConfi
 
     @Override
     public void onConfirm() {
-        customProgressBar = new CustomProgressBar(getActivity(), mLayout, CustomProgressBar.ProgressBarEnum.CIRCULAR);
+        customProgressBar = new CustomProgressBar(getActivity(), mLayout, CustomProgressBar.ProgressBarEnum.HORIZONTAL, false);
         customProgressBar.show();
         mPresenter.inserir();
     }

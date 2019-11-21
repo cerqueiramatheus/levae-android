@@ -68,8 +68,7 @@ public class LoginActivity extends BaseActivity implements LoginInterface.View {
 
     @Override
     public void onErro(String msg) {
-        System.out.println(msg);
-        showSnack(msg);
+        showSnack("informações incorretas");
     }
 
     @Override

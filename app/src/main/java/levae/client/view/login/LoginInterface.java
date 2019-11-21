@@ -11,7 +11,9 @@ public interface LoginInterface {
 
     interface View extends BaseView<Presenter> {
         void toSignUp();
+
         void onAccepted();
+
         void onErro(String erro);
     }
 

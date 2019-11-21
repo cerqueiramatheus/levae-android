@@ -1,5 +1,8 @@
 package levae.client.core.model.veiculo;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 
 /**
@@ -7,8 +10,12 @@ import java.io.Serializable;
  */
 public class Marca implements Serializable {
 
+    @SerializedName("idMarca")
+    @Expose
     private int idMarca;
 
+    @SerializedName("descricaoMarca")
+    @Expose
     private String descricao;
 
     public int getIdMarca() {

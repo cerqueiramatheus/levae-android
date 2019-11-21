@@ -1,7 +1,5 @@
 package levae.client.view.cadastro;
 
-import android.os.Bundle;
-
 import levae.client.core.base.BasePresenter;
 import levae.client.core.base.BaseView;
 
@@ -11,7 +9,7 @@ public interface CadastroInterface {
 
         void goToDadosPessoais();
 
-        void setDadosPessoais(String nome, String celular, String nascimento);
+        void setDadosPessoais(String nome, String celular, String nascimento, String cpf);
 
         void goToLoginSenha();
 
@@ -26,7 +24,7 @@ public interface CadastroInterface {
 
         void moveToDadosPessoais();
 
-        void moveToLoginSenha(String nome, String celular, String nascimento);
+        void moveToLoginSenha(String nome, String celular, String nascimento, String cpf);
 
         void moveToMain(String email, String senha);
     }

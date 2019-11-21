@@ -1,12 +1,7 @@
 package levae.client.view.demandaNova.objetoNovo;
 
 import android.content.Context;
-import android.graphics.Bitmap;
 import android.net.Uri;
-
-import com.vansuita.pickimage.listeners.IPickResult;
-
-import java.io.File;
 
 import levae.client.core.base.BasePresenter;
 import levae.client.core.base.BaseView;
@@ -32,7 +27,6 @@ class ObjetoNovoInterface {
         boolean onAdicionar(String titulo, String valor);
 
         void backToList();
-
 
         void resizeImg(Context context, Uri img);
 

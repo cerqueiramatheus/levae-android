@@ -39,8 +39,8 @@ public class CadastroActivity extends BaseActivity implements CadastroInterface.
     }
 
     @Override
-    public void setDadosPessoais(String nome, String celular, String nascimento) {
-        mPresenter.moveToLoginSenha(nome, celular, nascimento);
+    public void setDadosPessoais(String nome, String celular, String nascimento, String cpf) {
+        mPresenter.moveToLoginSenha(nome, celular, nascimento, cpf);
     }
 
     @Override

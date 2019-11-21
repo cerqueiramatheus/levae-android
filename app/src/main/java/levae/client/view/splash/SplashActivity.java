@@ -1,13 +1,20 @@
 package levae.client.view.splash;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
+import com.google.android.gms.location.LocationServices;
 
 import levae.client.R;
 import levae.client.core.base.BaseActivity;
 import levae.client.core.util.ContextUtil;
-import levae.client.core.util.UserUtils;
 import levae.client.view.apresentacao.ApresentacaoActivity;
 import levae.client.view.main.MainActivity;
 
@@ -23,8 +30,11 @@ public class SplashActivity extends BaseActivity implements SplashInterface.View
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-        showMessage(UserUtils.getToken());
-        setPresenter(new SplashPresenter(this));
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            checkPermission();
+        }
+
         new ContextUtil();
     }
 
@@ -43,16 +53,30 @@ public class SplashActivity extends BaseActivity implements SplashInterface.View
 
     @Override
     public void moveToMain() {
-        showSnack("token: "+UserUtils.getToken());
         Intent it = new Intent(SplashActivity.this, MainActivity.class);
         moveToActivity(it);
     }
 
     @Override
     public void moveToApresentacao() {
-        showSnack("token: "+UserUtils.getToken());
         Intent it = new Intent(SplashActivity.this, ApresentacaoActivity.class);
         moveToActivity(it);
+    }
+
+    @Override
+    public void checkPermission() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED ||
+                ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, 123);
+
+
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED ||
+                    ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+                new SplashPresenter(this, LocationServices.getFusedLocationProviderClient(this));
+            }
+        } else {
+            new SplashPresenter(this, LocationServices.getFusedLocationProviderClient(this));
+        }
     }
 
     @Override

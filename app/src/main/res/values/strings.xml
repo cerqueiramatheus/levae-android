@@ -42,6 +42,9 @@
     <string name="menu_about_title">sobre</string>
     <string name="menu_about_text">descubra quem está por trás dos panos</string>
 
+    <string name="menu_logout_title">logout</string>
+    <string name="menu_logout_text">sair do aplicativo</string>
+
     <string name="menu_profile_title">perfil</string>
     <string name="menu_profile_text">edite suas informações</string>
 

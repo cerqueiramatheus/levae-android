@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/alterar_celular_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/quantum_white_100"
+    android:clipToPadding="false"
+    android:paddingLeft="8dp"
+    android:paddingTop="16dp"
+    android:paddingRight="8dp">
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/alterar_celular_btn_confirmar"
+        style="@style/Button.OutlinedButton.Background"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/alterar_celular_til_numero"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:text="confirmar" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/alterar_celular_til_numero"
+        style="@style/TextInputLayout.OutlinedBox.White"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:errorEnabled="true">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/alterar_celular_et_numero"
+            style="@style/TextInputEditText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:digits=" 1234567890"
+            android:hint="número de celular"
+            android:inputType="number"
+            android:maxLength="11" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+</RelativeLayout>

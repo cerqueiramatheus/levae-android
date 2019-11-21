@@ -1,12 +1,19 @@
 package levae.client.view.demandaNova.demandaForm;
 
+import android.content.Context;
+import android.location.Address;
+import android.location.Geocoder;
+
 import com.google.android.libraries.places.api.model.Place;
 
+import java.io.IOException;
 import java.sql.Date;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
+import java.util.Locale;
 
 import levae.client.core.model.demanda.Demanda;
 import levae.client.core.model.veiculo.TipoVeiculo;
@@ -19,15 +26,19 @@ public class DemandaFormPresenter implements DemandaFormInterface.Presenter {
 
     private DemandaFormInterface.View mView;
     private DemandaNovaInterface.View mRoot;
+    private Context mContext;
     private TipoVeiculo tipoVeiculo;
     private Place coletaPlace;
     private Place entregaPlace;
     private Calendar coletaCalendar;
     private Calendar entregaCalendar;
+    private String nomeDe;
+    private String nomePara;
 
-    DemandaFormPresenter(DemandaFormInterface.View view, DemandaNovaInterface.View root) {
+    DemandaFormPresenter(DemandaFormInterface.View view, DemandaNovaInterface.View root, Context context) {
         this.mRoot = root;
         this.mView = view;
+        this.mContext = context;
         mView.setPresenter(this);
 
         if (mRoot.getColetaCalendar() != null && mRoot.getEntregaCalendar() != null && mRoot.getColetaPlace() != null && mRoot.getEntregaPlace() != null && mRoot.getTipoVeiculo() != null) {
@@ -136,6 +147,9 @@ public class DemandaFormPresenter implements DemandaFormInterface.Presenter {
             return false;
         }
 
+        nomeDe = nomeColeta;
+        nomePara = nomeEntrega;
+
         return true;
 
     }
@@ -157,12 +171,40 @@ public class DemandaFormPresenter implements DemandaFormInterface.Presenter {
         demanda.setDataColeta(simpleDateFormat.format(new Date(coletaCalendar.getTimeInMillis())));
         demanda.setDataLimite(simpleDateFormat.format(new Date(entregaCalendar.getTimeInMillis())));
 
+        try {
+            demanda.setCidadeColeta(getPlaceCity(coletaPlace.getLatLng().latitude, coletaPlace.getLatLng().longitude));
+            demanda.setCidadeEntrega(getPlaceCity(entregaPlace.getLatLng().latitude, entregaPlace.getLatLng().longitude));
+
+            System.out.println(demanda.getCidadeColeta() + "/ " + demanda.getCidadeEntrega());
+        } catch (IOException e) {
+            System.out.println(e.toString());
+            e.printStackTrace();
+            e.getCause().printStackTrace();
+        }
+
+        demanda.setNomeDe(nomeDe);
+        demanda.setNomePara(nomePara);
+
         demanda.setTipoVeiculo(tipoVeiculo);
 
         mRoot.setDemanda(demanda);
 
         mRoot.prepareConfirmacao();
     }
+
+    @Override
+    public String getPlaceCity(double latitude, double longitude) throws IOException {
+        Geocoder geocoder = new Geocoder(mContext, Locale.getDefault());
+        List<Address> addressList = geocoder.getFromLocation(latitude, longitude, 1);
+
+        if (addressList != null && addressList.size() > 0) {
+            System.out.println("geocoder nulo");
+            return addressList.get(0).getSubAdminArea();
+        } else {
+            return null;
+        }
+    }
+
 
     @Override
     public void subscribe() {

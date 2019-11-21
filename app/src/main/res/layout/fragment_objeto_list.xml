@@ -71,5 +71,4 @@
         app:icon="@drawable/ic_check"
         app:iconTint="@color/textColorPrimary" />
 
-
 </RelativeLayout>

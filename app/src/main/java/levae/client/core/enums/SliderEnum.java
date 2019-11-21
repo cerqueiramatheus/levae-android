@@ -9,7 +9,8 @@ public enum SliderEnum {
 
     ADD(R.raw.check_items, R.string.slider_add),
     PICK(R.raw.pick_location, R.string.slider_pick),
-    PAY(R.raw.credit_card, R.string.slider_pay);
+    PAY(R.raw.credit_card, R.string.slider_pay),
+    CONTROL(R.raw.credit_card, R.string.slider_pay);
 
     private final int imagem, descricao;
 

@@ -9,7 +9,10 @@ import levae.client.core.base.BaseView;
 class SplashInterface {
     interface View extends BaseView<SplashInterface.Presenter> {
         void moveToMain();
+
         void moveToApresentacao();
+
+        void checkPermission();
     }
 
     interface Presenter extends BasePresenter {

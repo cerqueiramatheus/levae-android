@@ -22,13 +22,13 @@ public class DemandaConfirmInterface {
 
         void update();
 
-        void setEtPagamento (int resId, String txt);
+        void setEtPagamento(int resId, String txt);
 
         void message(String msg);
 
-        void setObjetos (String objetos);
+        void setObjetos(String objetos);
 
-        void showConfirmation (String c);
+        void showConfirmation(String c);
 
         void onConfirm();
     }

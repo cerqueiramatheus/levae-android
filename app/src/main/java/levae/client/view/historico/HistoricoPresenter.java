@@ -7,7 +7,7 @@ public class HistoricoPresenter implements HistoricoInterface.Presenter {
 
     private HistoricoInterface.View mView;
 
-    public HistoricoPresenter(HistoricoInterface.View view) {
+    HistoricoPresenter(HistoricoInterface.View view) {
         mView = view;
         mView.setPresenter(this);
     }

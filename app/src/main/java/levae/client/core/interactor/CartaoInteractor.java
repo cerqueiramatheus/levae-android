@@ -14,6 +14,7 @@ import levae.client.core.util.UserUtils;
 /**
  * Created by txring on 25/05/2019.
  */
+
 public class CartaoInteractor {
 
     private CartaoService service;

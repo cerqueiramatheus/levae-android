@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/alterar_email_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:clipToPadding="false"
+    android:paddingLeft="8dp"
+    android:paddingTop="16dp"
+    android:paddingRight="8dp">
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/alterar_email_btn_confirmar"
+        style="@style/Button.OutlinedButton.Background"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/alterar_email_til_text"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:text="confirmar" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/alterar_email_til_text"
+        style="@style/TextInputLayout.OutlinedBox.White"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:errorEnabled="true">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/alterar_email_et_text"
+            style="@style/TextInputEditText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="e-mail"
+            android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+</RelativeLayout>

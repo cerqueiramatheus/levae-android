@@ -1,6 +1,5 @@
 package levae.client.view.demandaNova.objetoList;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,8 +36,6 @@ public class ObjetoListFragment extends BaseFragment implements ObjetoListInterf
     private ObjetoListInterface.Presenter mPresenter;
 
     private View view;
-
-    private Activity mActivity;
 
     public ObjetoListFragment() {
         // Required empty public constructor
@@ -115,13 +112,11 @@ public class ObjetoListFragment extends BaseFragment implements ObjetoListInterf
     @OnClick(R.id.demanda_nova_objeto_btn_proximo)
     public void onProximoClick() {
         mPresenter.moveToDemandaForm();
-        System.out.println("aaaaaaaaaaaaaaaaaaaaaaaa");
     }
 
     @OnClick(R.id.demanda_nova_objeto_btn_novo)
     public void onNovoClick() {
         mPresenter.moveToObjetoNovo();
-        System.out.println("bbbbbbbbbbbbbbbbb");
     }
 
 }

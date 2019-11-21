@@ -15,6 +15,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import levae.client.R;
+import levae.client.core.base.BaseActivity;
 import levae.client.core.util.EditTextUtils;
 import levae.client.view.cadastro.CadastroActivity;
 import levae.client.view.cadastro.CadastroInterface;
@@ -85,15 +86,21 @@ public class CadastroLoginSenhaFragment extends Fragment implements CadastroLogi
     @Override
     public void onEmailErro(String msg) {
 
+        EditTextUtils.setError(tilEmail, msg);
+
     }
 
     @Override
     public void onSenhaErro(String msg) {
 
+        ((BaseActivity) getActivity()).showSnack(msg);
+
     }
 
     @Override
     public void onSenhaConfirmaErro(String msg) {
+
+        EditTextUtils.setError(tilSenhaConfirma, msg);
 
     }
 

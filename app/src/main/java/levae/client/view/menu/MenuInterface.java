@@ -15,6 +15,10 @@ public interface MenuInterface {
         void startCompartilhar();
 
         void startSobre();
+
+        void startPerfil();
+
+        void setNome(String nome);
     }
 
     interface Presenter extends BasePresenter {
@@ -25,5 +29,6 @@ public interface MenuInterface {
         void onSobreClick();
 
         void onPerfilClick();
+
     }
 }
