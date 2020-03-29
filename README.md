@@ -1,7 +1,3 @@
----
-description: Interface "cliente" do projeto levaê!
----
-
 # levaê! \(cliente\)
 
 ## Como usar
