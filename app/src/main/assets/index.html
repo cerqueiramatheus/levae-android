@@ -23,7 +23,7 @@
 
         }else{
 
-            pagarme.client.connect({ encryption_key: 'ek_test_RnHBjPeeFXgMzMkrh6aBMGnZkGL5Yr' })
+            pagarme.client.connect({ encryption_key: 'KEY' })
               .then(client => client.security.encrypt(card))
               .then(card_hash => Android.setToken(card_hash))
 
